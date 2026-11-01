@@ -4026,12 +4026,14 @@ function interpolate(text: string, params?: TParams): string {
 /**
  * Which plural form a count takes.
  *
- * English has two (one / other); Russian has three, and picking between them is
- * not a matter of taste — "9 элементов" vs "2 элемента" vs "1 элемент" are all
- * required. Getting this wrong is the tell-tale sign of a machine-translated
- * interface, so counts go through here rather than through string concatenation.
+ * English has two forms, Russian has three, and Arabic has six cardinal forms
+ * (zero, one, two, few, many, other). Counts go through this function rather
+ * than being concatenated into strings.
  */
-export function pluralForm(locale: Locale, count: number): 'one' | 'few' | 'many' | 'other' | 'zero' | 'two' {
+export function pluralForm(
+    locale: Locale,
+    count: number
+): 'one' | 'few' | 'many' | 'other' | 'zero' | 'two' {
     // Chinese does not inflect for number: "1 个" and "5 个" are the same word.
     if (locale === 'zh') return 'other';
     const n = Math.abs(Math.round(count));
