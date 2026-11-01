@@ -14,7 +14,7 @@ describe('dictionary parity', () => {
     // legitimately need different forms: English has one/other, Russian has
     // one/few/many. So parity is about the BASE key — comparing raw key lists
     // would report every Russian `.few` as an orphan.
-    const PLURAL_SUFFIX = /\.(one|few|many|other)$/;
+    const PLURAL_SUFFIX = /\.(zero|one|two|few|many|other)$/;
 
     const split = (dict: Record<string, string>) => {
         const plain = new Set<string>();
@@ -178,6 +178,15 @@ describe('translatePlural', () => {
     it('picks the English form', () => {
         expect(translatePlural('en', 'common.items', 1)).toBe('1 item');
         expect(translatePlural('en', 'common.items', 9)).toBe('9 items');
+    });
+
+    it('uses Arabic zero, one, two, few, many and other forms', () => {
+        expect(translatePlural('ar', 'common.items', 0)).toBe('لا عناصر');
+        expect(translatePlural('ar', 'common.items', 1)).toBe('1 عنصر');
+        expect(translatePlural('ar', 'common.items', 2)).toBe('عنصران');
+        expect(translatePlural('ar', 'common.items', 3)).toBe('3 عناصر');
+        expect(translatePlural('ar', 'common.items', 11)).toBe('11 عنصراً');
+        expect(translatePlural('ar', 'common.items', 100)).toBe('100 عنصر');
     });
 });
 
