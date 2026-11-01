@@ -1,20 +1,20 @@
 ---
-title: "Tax Return 2026"
+title: "الإقرار الضريبي 2026"
 status: paused
 priority: medium
 startDate: 2026-06-01
 targetDate: 2026-12-31
 tags: [admin]
 taskTags: [admin]
-description: "Waiting for the last certificate from the bank."
+description: "بانتظار الشهادة الأخيرة من البنك."
 color: "#f59e0b"
 icon: receipt
 ---
 
-Waiting for the last certificate from the bank.
+بانتظار الشهادة الأخيرة من البنك.
 
-## Tasks
+## المهام
 
-- [x] Collect the payslips ✅ 2026-06-15
-- [ ] Get the bank certificate
-- [ ] File the return
+- [x] جمع كشوف الرواتب ✅ 2026-06-15
+- [ ] الحصول على شهادة البنك
+- [ ] تقديم الإقرار
