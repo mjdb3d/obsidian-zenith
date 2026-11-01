@@ -3,7 +3,7 @@ title: "Blade Runner 2049"
 type: movie
 status: completed
 rating: 9
-cover: "30 Content/covers/Blade Runner 2049.webp"
+cover: "30 المحتوى/الأغلفة/Blade Runner 2049.webp"
 year: 2017
 creator: "Denis Villeneuve"
 genres: [science fiction, noir]
