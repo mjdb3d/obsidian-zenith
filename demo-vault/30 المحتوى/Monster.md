@@ -4,7 +4,7 @@ type: anime
 status: completed
 favorite: true
 rating: 10
-cover: "30 Content/covers/Monster.webp"
+cover: "30 المحتوى/الأغلفة/Monster.webp"
 year: 2004
 creator: "Madhouse"
 genres: [thriller, mystery]
