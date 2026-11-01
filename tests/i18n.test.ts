@@ -190,6 +190,9 @@ describe('translatePlural', () => {
         expect(translatePlural('ar', 'common.items', 3)).toBe('3 عناصر');
         expect(translatePlural('ar', 'common.items', 11)).toBe('11 عنصراً');
         expect(translatePlural('ar', 'common.items', 100)).toBe('100 عنصر');
+        expect(translatePlural('ar', 'countdown.unit', 4)).toBe('أيام');
+        expect(translatePlural('ar', 'countdown.unit', 2)).toBe('يومان');
+        expect(translatePlural('ar', 'countdown.days', 4)).toBe('4 أيام');
     });
 });
 
