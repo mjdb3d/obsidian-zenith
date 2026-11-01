@@ -4,7 +4,7 @@ type: book
 status: completed
 favorite: true
 rating: 9
-cover: "30 Content/covers/Piranesi.webp"
+cover: "30 المحتوى/الأغلفة/Piranesi.webp"
 year: 2020
 creator: "Susanna Clarke"
 genres: [fantasy]
