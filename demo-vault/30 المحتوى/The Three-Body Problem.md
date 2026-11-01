@@ -3,7 +3,7 @@ title: "The Three-Body Problem"
 type: book
 status: in-progress
 rating: 0
-cover: "30 Content/covers/The Three-Body Problem.webp"
+cover: "30 المحتوى/الأغلفة/The Three-Body Problem.webp"
 year: 2008
 creator: "Liu Cixin"
 genres: [science fiction]
