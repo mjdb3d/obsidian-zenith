@@ -57,6 +57,7 @@ export const generalSchema: CoreSettingsSchema = coreSchema({
                         { value: 'en', label: 'English' },
                         { value: 'ru', label: 'Русский' },
                         { value: 'zh', label: '简体中文' },
+                        { value: 'ar', label: 'العربية' },
                     ],
                 },
             ],
