@@ -423,6 +423,8 @@
     ],
     "dashboardBgDim": 30,
     "dashboardCardOpacity": 72,
-    "journalFolderPath": "15 اليوميات/الملاحظات اليومية"
+    "journalFolderPath": "15 اليوميات/الملاحظات اليومية",
+    "contentFolderPath": "30 المحتوى",
+    "projectsFolderPath": "20 المشاريع"
   }
 }
