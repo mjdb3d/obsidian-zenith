@@ -24,18 +24,18 @@ const SNOOZES: SnoozeChoice[] = ['10m', '1h', 'tomorrow'];
  */
 function displayTitle(record: NotificationRecord, t: Translator): string {
     if (record.source !== 'prayer') return record.title;
-    const key = record.key.match(/^prayer:\\d{4}-\\d{2}-\\d{2}:(fajr|dhuhr|asr|maghrib|isha)$/);
-    const clock = record.title.match(/[—–]\\s*(\\d{1,2}:\\d{2}\\s*(?:AM|PM))$/i);
+    const key = record.key.match(/^prayer:\d{4}-\d{2}-\d{2}:(fajr|dhuhr|asr|maghrib|isha)$/);
+    const clock = record.title.match(/[—–]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))$/i);
     if (!key || !clock) return record.title;
 
     const prayer = t(`prayer.${key[1]}`);
-    const timeParts = clock[1].match(/^(\\d{1,2}):(\\d{2})\\s*(AM|PM)$/i);
+    const timeParts = clock[1].match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
     if (!timeParts) return record.title;
     let hours = Number(timeParts[1]) % 12;
     if (timeParts[3].toUpperCase() === 'PM') hours += 12;
     const date = new Date(2000, 0, 1, hours, Number(timeParts[2]));
     const time = date.toLocaleTimeString(t.locale, { hour: '2-digit', minute: '2-digit' });
-    const soon = record.title.match(/\\bin\\s+(\\d+)\\s+min(?:ute)?s?\\b/i);
+    const soon = record.title.match(/\bin\s+(\d+)\s+min(?:ute)?s?\b/i);
 
     if (record.missed) return t('prayer.notice.at', { prayer, time });
     if (soon) return t('prayer.notice.soon', { prayer, time, count: Number(soon[1]) });
