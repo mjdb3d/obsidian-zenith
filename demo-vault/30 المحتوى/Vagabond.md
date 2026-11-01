@@ -3,7 +3,7 @@ title: "Vagabond"
 type: manga
 status: dropped
 rating: 6
-cover: "30 Content/covers/Vagabond.webp"
+cover: "30 المحتوى/الأغلفة/Vagabond.webp"
 year: 1998
 creator: "Takehiko Inoue"
 genres: [historical]
