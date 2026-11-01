@@ -130,7 +130,7 @@ export const CountdownWidget: FC<DashboardWidgetProps> = ({
         <>
             {leadDays > 1 ? (
                 <span className="zenith-wfig">
-                    {leadDays}
+                    <span className="zenith-wfig__number">{leadDays}</span>
                     <span className="zenith-wfig__unit">{t.plural('countdown.unit', leadDays)}</span>
                 </span>
             ) : (
