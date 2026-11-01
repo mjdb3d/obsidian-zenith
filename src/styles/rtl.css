@@ -429,3 +429,57 @@ body.zenith-rtl .zenith-hmon__weekday {
     direction: rtl;
     text-align: center;
 }
+
+
+/* ── Final RTL corrections: notification chrome and prayer widget ─────── */
+
+/* The close control is sometimes a direct child of .modal-container in
+   Obsidian. Cover both modal surfaces; inline positioning in the modal class
+   is a second line of defence against theme rules. */
+body.zenith-rtl .modal-container.zenith-notify-modal-window .modal-close-button,
+body.zenith-rtl .modal.zenith-notify-modal-window .modal-close-button {
+    left: 12px !important;
+    right: auto !important;
+    inset-inline-start: 12px !important;
+    inset-inline-end: auto !important;
+}
+
+/* Prayer rows: the DOM order is name, time, status mark. With an RTL flex
+   direction they should read from the right edge toward the left. Remove the
+   original LTR auto-margin that was pushing the name away from the right. */
+body.zenith-rtl .zenith-prayer--widget button.zenith-prayer__tile--row {
+    direction: rtl !important;
+    flex-direction: row !important;
+    justify-content: flex-start;
+    text-align: right !important;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-name {
+    direction: rtl;
+    text-align: right !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-time {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: right;
+    margin: 0;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-mark {
+    flex: 0 0 18px;
+    margin: 0;
+}
+
+/* The summary/next-prayer line and the hero area are prose too. Keep labels
+   and progress copy at the right while isolated clock values stay LTR. */
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__oneline,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__hero,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__hero-text,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__marked {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__counter {
+    margin-left: 0;
+    margin-right: auto;
+}
