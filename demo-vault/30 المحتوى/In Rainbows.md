@@ -3,7 +3,7 @@ title: "In Rainbows"
 type: music
 status: completed
 rating: 9
-cover: "30 Content/covers/In Rainbows.webp"
+cover: "30 المحتوى/الأغلفة/In Rainbows.webp"
 year: 2007
 creator: "Radiohead"
 genres: [alternative]
