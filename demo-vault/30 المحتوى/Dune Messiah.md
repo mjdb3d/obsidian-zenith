@@ -4,7 +4,7 @@ type: book
 status: completed
 series: Dune
 rating: 7
-cover: "30 Content/covers/Dune Messiah.webp"
+cover: "30 المحتوى/الأغلفة/Dune Messiah.webp"
 year: 1969
 creator: "Frank Herbert"
 genres: [science fiction, classic]
