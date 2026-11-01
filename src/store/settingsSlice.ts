@@ -54,7 +54,7 @@ import type { ZenithSliceCreator } from './types';
 // ── Settings Types ───────────────────────────────────
 
 /** UI language for Zenith's own chrome. `auto` follows Obsidian's locale. */
-export type ZenithLanguage = 'auto' | 'en' | 'ru' | 'zh';
+export type ZenithLanguage = 'auto' | 'en' | 'ru' | 'zh' | 'ar';
 
 /** Temperature unit for the weather widget. */
 export type WeatherUnit = 'c' | 'f';
