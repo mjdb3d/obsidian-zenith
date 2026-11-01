@@ -15,6 +15,7 @@ import { SEARCH_STRINGS } from '../modules/search/strings';
 import { EDITOR_STRINGS } from '../modules/editor/strings';
 import { UTILITIES_STRINGS } from '../modules/utilities/strings';
 import { ZH } from './i18n.zh';
+import { AR } from './i18n.ar';
 
 /**
  * Minimal i18n for Zenith's own UI.
@@ -25,10 +26,10 @@ import { ZH } from './i18n.zh';
  * third, as one table of its own (`i18n.zh.ts`).
  */
 
-export type Locale = 'en' | 'ru' | 'zh';
+export type Locale = 'en' | 'ru' | 'zh' | 'ar';
 
 /** Every locale Zenith ships. Contributed chunks are filtered against it. */
-export const LOCALES: readonly Locale[] = ['en', 'ru', 'zh'];
+export const LOCALES: readonly Locale[] = ['en', 'ru', 'zh', 'ar'];
 
 type Dict = Record<string, string>;
 
@@ -3828,6 +3829,7 @@ export const DICTS: Record<Locale, Dict> = {
         ...UTILITIES_STRINGS.ru,
     },
     zh: ZH,
+    ar: AR,
 };
 
 // ── Contributed dictionaries ────────────────────────────────────────────────
@@ -3971,13 +3973,14 @@ export function hasTranslation(locale: Locale, key: string): boolean {
 
 /** Resolve the effective locale from an explicit language + Obsidian's setting. */
 export function resolveLocale(language: ZenithLanguage): Locale {
-    if (language === 'en' || language === 'ru' || language === 'zh') return language;
+    if (language === 'en' || language === 'ru' || language === 'zh' || language === 'ar') return language;
     // 'auto' → follow Obsidian's own language. Obsidian's Chinese is `zh` and
     // its Traditional one `zh-TW`; the Simplified strings serve both better
     // than English does.
     const obsidian = getLanguage();
     if (obsidian.startsWith('ru')) return 'ru';
     if (obsidian.startsWith('zh')) return 'zh';
+    if (obsidian.startsWith('ar')) return 'ar';
     return 'en';
 }
 
@@ -3989,6 +3992,7 @@ export function resolveLocale(language: ZenithLanguage): Locale {
 export function intlLocale(locale: Locale, english = 'en-US'): string {
     if (locale === 'ru') return 'ru-RU';
     if (locale === 'zh') return 'zh-CN';
+    if (locale === 'ar') return 'ar';
     return english;
 }
 
@@ -4010,10 +4014,19 @@ function interpolate(text: string, params?: TParams): string {
  * required. Getting this wrong is the tell-tale sign of a machine-translated
  * interface, so counts go through here rather than through string concatenation.
  */
-export function pluralForm(locale: Locale, count: number): 'one' | 'few' | 'many' | 'other' {
+export function pluralForm(locale: Locale, count: number): 'one' | 'few' | 'many' | 'other' | 'zero' | 'two' {
     // Chinese does not inflect for number: "1 个" and "5 个" are the same word.
     if (locale === 'zh') return 'other';
     const n = Math.abs(Math.round(count));
+    if (locale === 'ar') {
+        if (n === 0) return 'zero';
+        if (n === 1) return 'one';
+        if (n === 2) return 'two';
+        const mod100 = n % 100;
+        if (mod100 >= 3 && mod100 <= 10) return 'few';
+        if (mod100 >= 11 && mod100 <= 99) return 'many';
+        return 'other';
+    }
     if (locale === 'ru') {
         const mod10 = n % 10;
         const mod100 = n % 100;
