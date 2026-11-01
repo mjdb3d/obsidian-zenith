@@ -34,13 +34,6 @@ export class NotificationCenterModal extends Modal {
         // physical left so Obsidian's default right offset cannot win.
         this.containerEl.addClass('zenith-notify-modal-window');
         this.modalEl.addClass('zenith-notify-modal-window');
-        const closeButton = this.containerEl.querySelector<HTMLElement>('.modal-close-button');
-        if (closeButton) {
-            closeButton.style.setProperty('left', '12px', 'important');
-            closeButton.style.setProperty('right', 'auto', 'important');
-            closeButton.style.setProperty('inset-inline-start', '12px', 'important');
-            closeButton.style.setProperty('inset-inline-end', 'auto', 'important');
-        }
         contentEl.addClass('zenith-root', 'zenith-notify-modal');
 
         this.root = createRoot(contentEl.createDiv());
