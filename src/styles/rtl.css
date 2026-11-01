@@ -84,7 +84,6 @@ body.zenith-rtl .zenith-countdowns .zenith-wfig {
 
 body.zenith-rtl .zenith-countdowns .zenith-wfig__unit {
     display: inline-block;
-    margin-inline-start: 0.18em;
     direction: rtl;
     unicode-bidi: isolate;
 }
@@ -130,7 +129,7 @@ body.zenith-rtl .zenith-jcal__week {
 body.zenith-rtl .zenith-settings__back-btn {
     left: auto;
     right: 0;
-    flex-direction: row-reverse;
+    text-align: right;
     padding: 4px 0 4px 8px;
 }
 
@@ -149,6 +148,13 @@ body.zenith-rtl .zenith-notify__item {
 body.zenith-rtl .zenith-notify__item.is-unread::before {
     left: auto;
     right: 2px;
+}
+
+body.zenith-rtl .zenith-notify__text,
+body.zenith-rtl .zenith-notify__title,
+body.zenith-rtl .zenith-notify__body,
+body.zenith-rtl .zenith-notify__meta {
+    text-align: right;
 }
 
 body.zenith-rtl .zenith-notify__missed {
