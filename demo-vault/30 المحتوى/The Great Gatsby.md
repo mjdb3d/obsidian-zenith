@@ -3,7 +3,7 @@ title: "The Great Gatsby"
 type: book
 status: completed
 rating: 8
-cover: "30 Content/covers/The Great Gatsby.webp"
+cover: "30 المحتوى/الأغلفة/The Great Gatsby.webp"
 year: 1925
 creator: "F. Scott Fitzgerald"
 genres: [fiction, classic]
