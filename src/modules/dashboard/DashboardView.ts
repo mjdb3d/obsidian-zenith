@@ -41,14 +41,20 @@ export class DashboardView extends ItemView {
         container.empty();
         container.addClass('zenith-root', 'zenith-dash-host');
 
-        // Obsidian reads getDisplayText when the leaf is first created. Keep
-        // its tab title in step with Zenith's language when the user changes
-        // locale from the settings pane while this view is already open.
-        this.titleEl.setText(this.getDisplayText());
+        // Obsidian reads getDisplayText when the leaf is first created. It has
+        // no public refresh method, so refresh the visible view heading and ask
+        // the leaf to rebuild its tab header when the locale changes. Both
+        // internal hooks are optional and guarded: the dashboard still works
+        // normally on an Obsidian version that renames either element.
+        const refreshTitle = () => {
+            const title = this.containerEl.querySelector<HTMLElement>('.view-header-title');
+            if (title) title.textContent = this.getDisplayText();
+            const leaf = this.leaf as unknown as { updateHeader?: () => void };
+            leaf.updateHeader?.();
+        };
+        refreshTitle();
         this.unsubscribeLocale = useZenithStore.subscribe((state, previous) => {
-            if (state.settings.language !== previous.settings.language) {
-                this.titleEl.setText(this.getDisplayText());
-            }
+            if (state.settings.language !== previous.settings.language) refreshTitle();
         });
 
         // The wallpaper has to reach the pane's edges, and two things sat in
