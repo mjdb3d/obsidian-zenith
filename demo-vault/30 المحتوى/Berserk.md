@@ -3,7 +3,7 @@ title: "Berserk"
 type: manga
 status: on-hold
 rating: 0
-cover: "30 Content/covers/Berserk.webp"
+cover: "30 المحتوى/الأغلفة/Berserk.webp"
 year: 1989
 creator: "Kentaro Miura"
 genres: [dark fantasy]
