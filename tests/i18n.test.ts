@@ -88,7 +88,7 @@ describe('dictionary parity', () => {
         const english = new Map<string, string>();
         for (const [k, v] of Object.entries(DICTS.en)) english.set(base(k), names(v));
         const differ: string[] = [];
-        for (const locale of ['ru', 'zh'] as const) {
+        for (const locale of ['ru', 'zh', 'ar'] as const) {
             for (const [k, v] of Object.entries(DICTS[locale])) {
                 const want = english.get(base(k));
                 if (want !== undefined && names(v) !== want) differ.push(`${locale}:${k}`);
