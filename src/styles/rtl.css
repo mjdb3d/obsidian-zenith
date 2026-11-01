@@ -69,6 +69,13 @@ body.zenith-rtl .zenith-clock__time {
     text-align: left;
 }
 
+/* The hour strip is a 00:00 → 24:00 timeline, so its marks stay left-to-right
+   even though the rest of the card follows Arabic reading order. */
+body.zenith-rtl .zenith-clock__hours,
+body.zenith-rtl .zenith-clock__strip {
+    direction: ltr;
+}
+
 body.zenith-rtl .zenith-clock__seconds {
     direction: ltr;
     unicode-bidi: isolate;
