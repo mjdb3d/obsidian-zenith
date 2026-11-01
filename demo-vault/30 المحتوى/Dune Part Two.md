@@ -4,7 +4,7 @@ type: movie
 status: completed
 series: Dune
 rating: 9
-cover: "30 Content/covers/Dune Part Two.webp"
+cover: "30 المحتوى/الأغلفة/Dune Part Two.webp"
 year: 2024
 creator: "Denis Villeneuve"
 genres: [science fiction]
