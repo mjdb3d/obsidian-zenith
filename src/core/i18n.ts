@@ -3829,7 +3829,24 @@ export const DICTS: Record<Locale, Dict> = {
         ...UTILITIES_STRINGS.ru,
     },
     zh: ZH,
-    ar: AR,
+    // Arabic is a complete locale at runtime: translated Arabic strings take
+    // precedence, while any not-yet-localised additions remain readable in English.
+    ar: {
+        ...EN,
+        ...FEATURE_STRINGS.en,
+        ...NOTIFY_STRINGS.en,
+        ...PROFILE_STRINGS.en,
+        ...PRAYER_STRINGS.en,
+        ...TASK_STRINGS.en,
+        ...JOURNAL_STRINGS.en,
+        ...CONTENT_STRINGS.en,
+        ...DASHBOARD_STRINGS.en,
+        ...STUDY_STRINGS.en,
+        ...SEARCH_STRINGS.en,
+        ...EDITOR_STRINGS.en,
+        ...UTILITIES_STRINGS.en,
+        ...AR,
+    },
 };
 
 // ── Contributed dictionaries ────────────────────────────────────────────────
