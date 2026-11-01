@@ -29,6 +29,7 @@ export class NotificationCenterModal extends Modal {
     onOpen(): void {
         const { contentEl, titleEl } = this;
         titleEl.setText(translateNow('notify.title'));
+        this.modalEl.addClass('zenith-notify-modal-window');
         contentEl.addClass('zenith-root', 'zenith-notify-modal');
 
         this.root = createRoot(contentEl.createDiv());
