@@ -245,10 +245,18 @@ export const HabitMonth: FC<HabitMonthProps> = ({
             node.scrollLeft = 0;
             return;
         }
-        node.scrollLeft = Math.max(
+        const maxScroll = Math.max(0, node.scrollWidth - node.clientWidth);
+        const wantedLeft = Math.max(
             0,
-            marker.offsetLeft - node.clientWidth / 2 + marker.offsetWidth / 2
+            Math.min(
+                maxScroll,
+                marker.offsetLeft - node.clientWidth / 2 + marker.offsetWidth / 2
+            )
         );
+        // Chromium's RTL scroll model starts at zero on the right edge.
+        node.scrollLeft = document.body.classList.contains('zenith-rtl')
+            ? -(maxScroll - wantedLeft)
+            : wantedLeft;
     }, [monthKey, month.days.length]);
 
     // A popover anchored to a cell can't follow it; the honest thing is to go.

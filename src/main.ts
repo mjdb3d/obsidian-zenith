@@ -37,7 +37,7 @@ import { registerQuickAddTaskCommand } from './modules/tasks/commands';
 import { dashboardWidgets, type DashboardWidgetDefinition } from './modules/dashboard/widgets';
 import { navActions, type NavActionDefinition } from './modules/navigator/navigation';
 import { searchSources, type SearchSource } from './modules/search/searchSources';
-import { translateNow } from './core/i18n';
+import { resolveLocale, translateNow } from './core/i18n';
 import { moduleNameNow } from './core/moduleLabels';
 import { Scheduler } from './core/scheduler';
 import { NotificationCenter } from './core/notifications/NotificationCenter';
@@ -138,6 +138,14 @@ export default class ZenithPlugin extends Plugin {
      */
     private applyAccent(color: string): void {
         document.body.setCssProps({ '--zenith-accent-user': color.trim() });
+    }
+
+    /** Keep Zenith's own surfaces RTL when its independent locale is Arabic. */
+    private applyDirection(): void {
+        document.body.toggleClass(
+            'zenith-rtl',
+            resolveLocale(useZenithStore.getState().settings.language) === 'ar'
+        );
     }
 
     /**
@@ -282,6 +290,16 @@ export default class ZenithPlugin extends Plugin {
                 this.mobileInsets = null;
             });
         }
+
+        // ── Language direction ───────────────────────
+        this.applyDirection();
+        this.register(() => document.body.removeClass('zenith-rtl'));
+        this.disposers.push(
+            useZenithStore.subscribe(
+                (state) => state.settings.language,
+                () => this.applyDirection()
+            )
+        );
 
         // ── Density / motion ─────────────────────────
         this.applyAppearance();

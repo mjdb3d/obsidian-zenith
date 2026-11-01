@@ -14,7 +14,7 @@ describe('dictionary parity', () => {
     // legitimately need different forms: English has one/other, Russian has
     // one/few/many. So parity is about the BASE key — comparing raw key lists
     // would report every Russian `.few` as an orphan.
-    const PLURAL_SUFFIX = /\.(one|few|many|other)$/;
+    const PLURAL_SUFFIX = /\.(zero|one|two|few|many|other)$/;
 
     const split = (dict: Record<string, string>) => {
         const plain = new Set<string>();
@@ -63,6 +63,12 @@ describe('dictionary parity', () => {
     });
 
     const zh = split(DICTS.zh);
+    const ar = split(DICTS.ar);
+
+    it('keeps every English key available for the Arabic locale fallback', () => {
+        expect(missingFrom(en.plain, ar.plain)).toEqual([]);
+        expect(missingFrom(en.plural, ar.plural)).toEqual([]);
+    });
 
     it('translates every English string into Chinese', () => {
         expect(missingFrom(en.plain, zh.plain)).toEqual([]);
@@ -88,8 +94,11 @@ describe('dictionary parity', () => {
         const english = new Map<string, string>();
         for (const [k, v] of Object.entries(DICTS.en)) english.set(base(k), names(v));
         const differ: string[] = [];
-        for (const locale of ['ru', 'zh'] as const) {
+        for (const locale of ['ru', 'zh', 'ar'] as const) {
             for (const [k, v] of Object.entries(DICTS[locale])) {
+                // Arabic's exact zero and dual forms can state the quantity in
+                // the word itself, so they need not repeat a {count} placeholder.
+                if (locale === 'ar' && /\.(zero|two)$/.test(k)) continue;
                 const want = english.get(base(k));
                 if (want !== undefined && names(v) !== want) differ.push(`${locale}:${k}`);
             }
@@ -124,6 +133,15 @@ describe('pluralForm', () => {
         expect(pluralForm('ru', 0)).toBe('many');
         expect(pluralForm('ru', 5)).toBe('many');
         expect(pluralForm('ru', 100)).toBe('many');
+    });
+
+    it('uses Arabic cardinal plural categories', () => {
+        expect(pluralForm('ar', 0)).toBe('zero');
+        expect(pluralForm('ar', 1)).toBe('one');
+        expect(pluralForm('ar', 2)).toBe('two');
+        expect(pluralForm('ar', 3)).toBe('few');
+        expect(pluralForm('ar', 11)).toBe('many');
+        expect(pluralForm('ar', 100)).toBe('other');
     });
 
     it('has one form for Chinese', () => {
@@ -164,6 +182,15 @@ describe('translatePlural', () => {
         expect(translatePlural('en', 'common.items', 1)).toBe('1 item');
         expect(translatePlural('en', 'common.items', 9)).toBe('9 items');
     });
+
+    it('uses Arabic zero, one, two, few, many and other forms', () => {
+        expect(translatePlural('ar', 'common.items', 0)).toBe('لا عناصر');
+        expect(translatePlural('ar', 'common.items', 1)).toBe('1 عنصر');
+        expect(translatePlural('ar', 'common.items', 2)).toBe('عنصران');
+        expect(translatePlural('ar', 'common.items', 3)).toBe('3 عناصر');
+        expect(translatePlural('ar', 'common.items', 11)).toBe('11 عنصراً');
+        expect(translatePlural('ar', 'common.items', 100)).toBe('100 عنصر');
+    });
 });
 
 describe('resolveLocale', () => {
@@ -171,11 +198,13 @@ describe('resolveLocale', () => {
         expect(resolveLocale('ru')).toBe('ru');
         expect(resolveLocale('en')).toBe('en');
         expect(resolveLocale('zh')).toBe('zh');
+        expect(resolveLocale('ar')).toBe('ar');
     });
 
     it('names each locale for Intl', () => {
         expect(intlLocale('ru')).toBe('ru-RU');
         expect(intlLocale('zh')).toBe('zh-CN');
+        expect(intlLocale('ar')).toBe('ar');
         expect(intlLocale('en')).toBe('en-US');
         expect(intlLocale('en', 'en-GB')).toBe('en-GB');
     });
@@ -188,6 +217,8 @@ describe('resolveLocale', () => {
             expect(resolveLocale('auto')).toBe('zh');
             mockLanguage.value = 'zh-TW';
             expect(resolveLocale('auto')).toBe('zh');
+            mockLanguage.value = 'ar';
+            expect(resolveLocale('auto')).toBe('ar');
             mockLanguage.value = 'de';
             expect(resolveLocale('auto')).toBe('en');
         } finally {

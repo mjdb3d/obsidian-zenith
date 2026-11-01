@@ -22,4 +22,8 @@ export const dashboardTranslations: TranslationTable = {
         'module.dashboard.name': '仪表盘',
         'module.dashboard.desc': '汇总 Zenith 数据的中心概览。',
     },
+    ar: {
+        'module.dashboard.name': 'لوحة القيادة',
+        'module.dashboard.desc': 'المركز الرئيسي للاطلاع على بياناتك في Zenith.',
+    },
 };
