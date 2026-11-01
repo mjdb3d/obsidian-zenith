@@ -1,22 +1,22 @@
 ---
-title: "Move to a new flat"
+title: "الانتقال إلى منزل جديد"
 status: active
 priority: urgent
 startDate: 2026-09-01
-targetDate: 2026-10-01
+targetDate: 2026-12-10
 tags: [move]
 taskTags: [move]
-description: "The keys come in a week. Everything that has to happen before that."
+description: "موعد استلام المفاتيح يقترب؛ هذه قائمة بما يجب إنجازه قبل الانتقال."
 color: "#ef4444"
 icon: home
 ---
 
-The keys come in a week. Everything that has to happen before that.
+موعد استلام المفاتيح يقترب؛ هذه قائمة بما يجب إنجازه قبل الانتقال.
 
-## Tasks
+## المهام
 
-- [x] Sign the lease ✅ 2026-09-09
-- [x] Book the movers ✅ 2026-09-16
-- [ ] Pack the books 📅 2026-09-27
-- [ ] Transfer the internet contract 📅 2026-09-29 🔼
-- [ ] Hand back the old keys 📅 2026-10-02
+- [x] توقيع عقد الإيجار ✅ 2026-09-09
+- [x] حجز شركة النقل ✅ 2026-09-16
+- [ ] تعبئة الكتب 📅 2026-12-06
+- [ ] نقل عقد الإنترنت 📅 2026-12-08 🔼
+- [ ] تسليم المفاتيح القديمة 📅 2026-12-10
