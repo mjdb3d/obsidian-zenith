@@ -1,55 +1,53 @@
-# Inbox
+# صندوق الوارد
 
-The tasks folder, in one file. The task list reads this folder, the daily notes
-and the projects — so the tasks written in those show up too.
+هذا الملف يجمع المهام التجريبية. يقرأ Zenith المهام من هذا المجلد ومن الملاحظات اليومية والمشاريع، لذلك تظهر المهام المكتوبة فيها أيضاً.
 
-## Today
+## اليوم
 
-- [ ] Standup ⏰ 09:30-09:45 📅 2026-09-24 #work
-- [ ] Deep work: article template ⏰ 10:00-12:00 📅 2026-09-24 ⏲ 2h [[Website Redesign]]
-- [ ] Call Anna about the move ⏰ 16:00-16:30 📅 2026-09-24 #move
-- [/] Write the release notes ⏱ 1h10m ⏲ 45m 📅 2026-09-24 #work
-- [ ] Evening review ⏰ 22:00 📅 2026-09-24
+- [ ] الاجتماع اليومي ⏰ 09:30-09:45 📅 2026-09-24 #work
+- [ ] العمل المركز: قالب المقالة ⏰ 10:00-12:00 📅 2026-09-24 ⏲ 2h [[Website Redesign]]
+- [ ] الاتصال بآنا بخصوص الانتقال ⏰ 16:00-16:30 📅 2026-09-24 #move
+- [/] كتابة ملاحظات الإصدار ⏱ 1h10m ⏲ 45m 📅 2026-09-24 #work
+- [ ] مراجعة المساء ⏰ 22:00 📅 2026-09-24
 
-## Soon
+## قريباً
 
-- [ ] Dentist ⏰ 11:00 📅 2026-09-25 #health
-- [ ] Quarterly report 🔼 📅 2026-09-27 #work/reports
-    - [x] Collect the numbers ✅ 2026-09-23
-    - [/] Draft the introduction
-    - [ ] Send to review 📅 2026-09-27
-- [ ] Starts next week 🛫 2026-09-29 📅 2026-10-06
-- [ ] Scheduled, with no deadline ⏳ 2026-09-27
-- [ ] Visa appointment #countdown 📅 2026-10-08
-- [ ] Renew the passport #countdown 📅 2026-11-20
-- [ ] Buy new running shoes 🆔 shoes 📅 2026-10-02
-- [ ] Find a conversation partner 🆔 talk
+- [ ] موعد طبيب الأسنان ⏰ 11:00 📅 2026-09-25 #health
+- [ ] التقرير ربع السنوي 🔼 📅 2026-09-27 #work/reports
+    - [x] جمع الأرقام ✅ 2026-09-23
+    - [/] كتابة المقدمة
+    - [ ] إرسال التقرير للمراجعة 📅 2026-09-27
+- [ ] يبدأ الأسبوع القادم 🛫 2026-09-29 📅 2026-10-06
+- [ ] موعد مجدول بلا تاريخ استحقاق ⏳ 2026-09-27
+- [ ] موعد التأشيرة #countdown 📅 2026-11-05
+- [ ] تجديد جواز السفر #countdown 📅 2026-11-20
+- [ ] شراء حذاء جري جديد 🆔 shoes 📅 2026-10-02
+- [ ] العثور على شريك لممارسة المحادثة 🆔 talk
 
-## Overdue
+## متأخرة
 
-- [ ] Return the library books 📅 2026-09-21 #home
-- [ ] Send the invoice to Karim ⏫ 📅 2026-09-23 #work
+- [ ] إعادة كتب المكتبة 📅 2026-09-21 #home
+- [ ] إرسال الفاتورة إلى كريم ⏫ 📅 2026-09-23 #work
 
-## Every so often
+## مهام دورية
 
-- [ ] Water the plants 🔁 every week 📅 2026-09-26 #home
-- [ ] Back up the vault 🔁 every 3 days 📅 2026-09-25
-- [ ] Pay the rent 🔁 monthly 📅 2026-09-30 #home
-- [ ] Morning pages 🔁 daily 📅 2026-09-24
+- [ ] ريّ النباتات 🔁 كل أسبوع 📅 2026-09-26 #home
+- [ ] نسخ احتياطي للخزنة 🔁 كل 3 أيام 📅 2026-09-25
+- [ ] دفع الإيجار 🔁 شهرياً 📅 2026-09-30 #home
+- [ ] الكتابة الصباحية 🔁 يومياً 📅 2026-09-24
 
-## Study
+## الدراسة
 
-Tasks tagged `#study` — the lesson card's *Task for the next class* writes them
-like this, due on the day the subject is next taught.
+تُضاف المهام التي تحمل #study إلى يوم الحصة القادمة للمادة.
 
-- [ ] Statistics: problem set 3 #study 📅 2026-09-29
-- [ ] Data Engineering: lab report #study 📅 2026-10-01
-- [x] Machine Learning: read chapter 2 #study ✅ 2026-09-21
+- [ ] الإحصاء: مجموعة المسائل 3 #study 📅 2026-09-29
+- [ ] هندسة البيانات: تقرير المختبر #study 📅 2026-10-01
+- [x] تعلم الآلة: قراءة الفصل الثاني #study ✅ 2026-09-21
 
-## Someday
+## يوماً ما
 
-- [ ] Learn to make proper bread #home
-- [ ] Sort the photo library #photos
+- [ ] تعلم إعداد الخبز في المنزل #home
+- [ ] ترتيب مكتبة الصور #photos
     - [ ] 2024
     - [ ] 2025
-- [-] Build a standing desk
+- [-] إنشاء مكتب للعمل وقوفاً
