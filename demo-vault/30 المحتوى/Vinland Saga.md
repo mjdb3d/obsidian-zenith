@@ -3,7 +3,7 @@ title: "Vinland Saga"
 type: manga
 status: in-progress
 rating: 0
-cover: "30 Content/covers/Vinland Saga.webp"
+cover: "30 المحتوى/الأغلفة/Vinland Saga.webp"
 year: 2005
 creator: "Makoto Yukimura"
 genres: [historical]
