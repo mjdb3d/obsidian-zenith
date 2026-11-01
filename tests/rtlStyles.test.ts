@@ -14,7 +14,7 @@ describe('Arabic RTL layout', () => {
 
     it('anchors prayer labels to the right and isolates clock digits', () => {
         expect(styles).toContain('.zenith-prayer--widget button.zenith-prayer__tile--row');
-        expect(styles).toContain('margin-right: 0 !important');
+        expect(styles).toContain('margin-right: 0;');
         expect(styles).toContain('unicode-bidi: isolate');
     });
 });
