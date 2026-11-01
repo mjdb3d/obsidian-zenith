@@ -50,3 +50,108 @@ body.zenith-rtl .zenith-root [dir="ltr"],
 body.zenith-rtl .zenith-settings [dir="ltr"] {
     unicode-bidi: isolate;
 }
+
+
+/* ── Dashboard ────────────────────────────────────── */
+
+/* The card's ⋯ action is the first thing read in an RTL header, so keep it at
+   the physical right edge instead of leaving it after the title on the left. */
+body.zenith-rtl .zenith-widget-card__more {
+    order: -1;
+    margin-inline: -6px 0;
+}
+
+/* A clock is a numeric instrument, not Arabic prose. Keep its visual sequence
+   hour : minute : second even when the containing card reads RTL. */
+body.zenith-rtl .zenith-clock__time {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+}
+
+body.zenith-rtl .zenith-clock__seconds {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* Keep the count separate from its Arabic unit. The unit follows the number
+   in a small LTR-isolated run, avoiding bidi's tendency to pull it against it. */
+body.zenith-rtl .zenith-countdowns .zenith-wfig {
+    direction: ltr;
+    unicode-bidi: isolate;
+    white-space: nowrap;
+}
+
+body.zenith-rtl .zenith-countdowns .zenith-wfig__unit {
+    display: inline-block;
+    margin-inline-start: 0.18em;
+    direction: rtl;
+    unicode-bidi: isolate;
+}
+
+/* The arranging gallery is a panel of Arabic labels, not a row of LTR controls. */
+body.zenith-rtl .zenith-arrange,
+body.zenith-rtl .zenith-add-sheet {
+    direction: rtl;
+    text-align: right;
+}
+
+body.zenith-rtl .zenith-add-sheet__item {
+    direction: rtl;
+    text-align: right;
+}
+
+body.zenith-rtl .zenith-add-sheet__text,
+body.zenith-rtl .zenith-add-sheet__name,
+body.zenith-rtl .zenith-add-sheet__meta {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ── Journal calendar ─────────────────────────────── */
+
+/* The first date in the JS array is the first day of the configured week.
+   In Arabic that first cell belongs on the right, followed by later dates
+   moving left, in both the weekday strip and the month grid. */
+body.zenith-rtl .zenith-jcal,
+body.zenith-rtl .zenith-jcal__weekdays,
+body.zenith-rtl .zenith-jcal__grid {
+    direction: rtl;
+}
+
+body.zenith-rtl .zenith-jcal__num,
+body.zenith-rtl .zenith-jcal__week {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* ── Settings ──────────────────────────────────────── */
+
+body.zenith-rtl .zenith-settings__back-btn {
+    left: auto;
+    right: 0;
+    flex-direction: row-reverse;
+    padding: 4px 0 4px 8px;
+}
+
+body.zenith-rtl .zenith-settings__menu-icon {
+    margin-right: 0;
+    margin-left: 16px;
+}
+
+/* ── Notification list ─────────────────────────────── */
+
+body.zenith-rtl .zenith-notify__item {
+    padding-left: 0;
+    padding-right: var(--zenith-space-md);
+}
+
+body.zenith-rtl .zenith-notify__item.is-unread::before {
+    left: auto;
+    right: 2px;
+}
+
+body.zenith-rtl .zenith-notify__missed {
+    margin-left: 0;
+    margin-right: var(--zenith-space-sm);
+}
