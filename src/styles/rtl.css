@@ -438,26 +438,26 @@ body.zenith-rtl .zenith-hmon__weekday {
    is a second line of defence against theme rules. */
 body.zenith-rtl .modal-container.zenith-notify-modal-window .modal-close-button,
 body.zenith-rtl .modal.zenith-notify-modal-window .modal-close-button {
-    left: 12px !important;
-    right: auto !important;
-    inset-inline-start: 12px !important;
-    inset-inline-end: auto !important;
+    left: 12px;
+    right: auto;
+    inset-inline-start: 12px;
+    inset-inline-end: auto;
 }
 
 /* Prayer rows: the DOM order is name, time, status mark. With an RTL flex
    direction they should read from the right edge toward the left. Remove the
    original LTR auto-margin that was pushing the name away from the right. */
 body.zenith-rtl .zenith-prayer--widget button.zenith-prayer__tile--row {
-    direction: rtl !important;
-    flex-direction: row !important;
+    direction: rtl;
+    flex-direction: row;
     justify-content: flex-start;
-    text-align: right !important;
+    text-align: right;
 }
 body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-name {
     direction: rtl;
-    text-align: right !important;
-    margin-right: 0 !important;
-    margin-left: 0 !important;
+    text-align: right;
+    margin-right: 0;
+    margin-left: 0;
 }
 body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-time {
     direction: ltr;
