@@ -3,7 +3,7 @@ title: "Perfect Days"
 type: movie
 status: completed
 rating: 10
-cover: "30 Content/covers/Perfect Days.webp"
+cover: "30 المحتوى/الأغلفة/Perfect Days.webp"
 year: 2023
 creator: "Wim Wenders"
 genres: [drama]
