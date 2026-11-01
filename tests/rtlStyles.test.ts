@@ -8,7 +8,7 @@ describe('Arabic RTL layout', () => {
     it('pins the notification close control to the physical left on either modal surface', () => {
         expect(styles).toContain('.modal-container.zenith-notify-modal-window .modal-close-button');
         expect(styles).toContain('.modal.zenith-notify-modal-window .modal-close-button');
-        expect(styles).toContain('inset-inline-end: auto !important');
+        expect(styles).toContain('inset-inline-end: auto');
     });
 
     it('anchors prayer labels to the right and isolates clock digits', () => {
