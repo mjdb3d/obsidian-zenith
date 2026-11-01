@@ -3,7 +3,7 @@ title: "The Bear"
 type: show
 status: completed
 rating: 8
-cover: "30 Content/covers/The Bear.webp"
+cover: "30 المحتوى/الأغلفة/The Bear.webp"
 year: 2022
 creator: "FX"
 genres: [drama, comedy]
