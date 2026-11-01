@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
+// Guards the direction-sensitive selectors used by the notification modal and prayer widget.
 describe('Arabic RTL layout', () => {
     const styles = readFileSync(join(__dirname, '../src/styles/rtl.css'), 'utf8');
 
