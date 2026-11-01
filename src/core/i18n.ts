@@ -3829,8 +3829,8 @@ export const DICTS: Record<Locale, Dict> = {
         ...UTILITIES_STRINGS.ru,
     },
     zh: ZH,
-    // Arabic is a complete locale at runtime: translated Arabic strings take
-    // precedence, while any not-yet-localised additions remain readable in English.
+    // Arabic translations override the English base dictionary. Any strings not
+    // translated yet remain readable in English rather than falling back to raw keys.
     ar: {
         ...EN,
         ...FEATURE_STRINGS.en,
