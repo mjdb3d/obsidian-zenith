@@ -98,7 +98,7 @@ describe('dictionary parity', () => {
             for (const [k, v] of Object.entries(DICTS[locale])) {
                 // Arabic's exact zero and dual forms can state the quantity in
                 // the word itself, so they need not repeat a {count} placeholder.
-                if (locale === 'ar' && /\\.(zero|two)$/.test(k)) continue;
+                if (locale === 'ar' && /\.(zero|two)$/.test(k)) continue;
                 const want = english.get(base(k));
                 if (want !== undefined && names(v) !== want) differ.push(`${locale}:${k}`);
             }
