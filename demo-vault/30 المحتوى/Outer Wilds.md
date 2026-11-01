@@ -3,7 +3,7 @@ title: "Outer Wilds"
 type: game
 status: completed
 rating: 10
-cover: "30 Content/covers/Outer Wilds.webp"
+cover: "30 المحتوى/الأغلفة/Outer Wilds.webp"
 year: 2019
 creator: "Mobius Digital"
 genres: [exploration, puzzle]
