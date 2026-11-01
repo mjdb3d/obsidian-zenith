@@ -248,7 +248,14 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ schema, values, onCh
                 // right-hand column is unreadable at any vault depth.
                 layout={
                     field.layout ??
-                    (field.type === 'folder' || field.type === 'textarea' ? 'stack' : 'row')
+                    (
+                        field.type === 'folder' ||
+                        field.type === 'textarea' ||
+                        field.type === 'multiselect' ||
+                        field.type === 'segmented'
+                            ? 'stack'
+                            : 'row'
+                    )
                 }
                 group={GROUPED.has(field.type)}
                 compact={COMPACT.has(field.type)}
