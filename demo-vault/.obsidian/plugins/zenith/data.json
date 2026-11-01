@@ -84,22 +84,22 @@
     ],
     "journalReviewNotes": {
       "week": {
-        "folder": "15 اليوميات/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "GGGG-[W]WW",
         "template": ""
       },
       "month": {
-        "folder": "15 اليوميات/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "YYYY-MM",
         "template": ""
       },
       "quarter": {
-        "folder": "15 اليوميات/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "YYYY-[Q]Q",
         "template": ""
       },
       "year": {
-        "folder": "15 اليوميات/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "YYYY",
         "template": ""
       }
@@ -123,7 +123,7 @@
     "widgetConfig": {
       "picture.frame": {
         "pictureSource": "vault",
-        "picturePath": "00 Files/Images/Picture frame 1.png",
+        "picturePath": "00 الملفات/الصور/Picture frame 1.png",
         "pictureFit": "cover"
       },
       "dashboard.progress": {
@@ -139,7 +139,7 @@
           },
           {
             "title": "الرحلة إلى إسطنبول",
-            "date": "2026-11-12",
+            "date": "2026-12-10",
             "yearly": false
           }
         ]
@@ -422,6 +422,7 @@
       "picture.timer"
     ],
     "dashboardBgDim": 30,
-    "dashboardCardOpacity": 72
+    "dashboardCardOpacity": 72,
+    "journalFolderPath": "15 اليوميات/الملاحظات اليومية"
   }
 }
