@@ -3,7 +3,7 @@ title: "The Pragmatic Programmer"
 type: book
 status: in-progress
 rating: 0
-cover: "30 Content/covers/The Pragmatic Programmer.webp"
+cover: "30 المحتوى/الأغلفة/The Pragmatic Programmer.webp"
 year: 1999
 creator: "Hunt & Thomas"
 genres: [software]
