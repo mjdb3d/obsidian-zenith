@@ -2916,4 +2916,8 @@ export const AR: Record<string, string> = {
     "settings.journalFormat.preview": "ملاحظة اليوم: {path}",
     "settings.journalCapture.desc": "تُكتب المهام الجديدة في ملاحظة اليوم بدلاً من صندوق وارد المهام. كما يتم فحص الملاحظات اليومية بحثاً عن المهام، ولذلك ستظل تظهر في شاشة المهام.",
     "settings.journalTrackers.desc": "مربعات اختيار ومقاييس من 1 إلى 5 وأرقام عادية. يخزن كل متتبع قيمته تحت مفتاح مستقل في الخصائص الأمامية للملاحظة، لتظل بيانات اليوم خصائص Obsidian عادية.",
+    // Remaining navigation module messages.
+    "navigator.panel.shared": "الترتيب والعناصر المخفية هما نفسهما في بطاقة «التنقل» على لوحة القيادة.",
+    "navigator.panel.unavailable": "لا يمكن تنفيذ هذا الأمر هنا.",
+    "navigator.panel.off": "ميزة التنقل معطلة. فعّلها من إعدادات Zenith ضمن قائمة الوحدات.",
 };
