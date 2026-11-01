@@ -63,6 +63,12 @@ describe('dictionary parity', () => {
     });
 
     const zh = split(DICTS.zh);
+    const ar = split(DICTS.ar);
+
+    it('keeps every English key available for the Arabic locale fallback', () => {
+        expect(missingFrom(en.plain, ar.plain)).toEqual([]);
+        expect(missingFrom(en.plural, ar.plural)).toEqual([]);
+    });
 
     it('translates every English string into Chinese', () => {
         expect(missingFrom(en.plain, zh.plain)).toEqual([]);
