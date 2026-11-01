@@ -1755,4 +1755,7 @@ export const AR: Record<string, string> = {
     "widget.clock": "الساعة",
     "widget.nav": "التنقل",
     "widget.picture": "الصورة",
+    // Tasks calendar module labels.
+    "module.tasks-calendar.name": "تقويم المهام",
+    "module.tasks-calendar.desc": "عرض مهامك في تقويم شهري أو أسبوعي أو في جدول أعمال.",
 };
