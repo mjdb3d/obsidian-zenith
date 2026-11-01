@@ -210,16 +210,25 @@ body.zenith-rtl .zenith-clock__seconds {
 
 /* A countdown's number and its Arabic unit need a visible separation. */
 body.zenith-rtl .zenith-countdowns .zenith-wfig {
-    direction: ltr;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0.38em;
+    direction: rtl;
     unicode-bidi: isolate;
     white-space: nowrap;
+    text-align: right;
+}
+body.zenith-rtl .zenith-countdowns .zenith-wfig__number {
+    direction: ltr;
+    unicode-bidi: isolate;
 }
 body.zenith-rtl .zenith-countdowns .zenith-wfig__unit {
     display: inline-block;
     direction: rtl;
     unicode-bidi: isolate;
-    margin-left: 0.4em;
-    margin-right: 0;
+    margin: 0;
     white-space: nowrap;
     vertical-align: baseline;
 }
@@ -335,7 +344,7 @@ body.zenith-rtl .zenith-settings__item-desc {
 body.zenith-rtl .zenith-notify-modal-window .modal-title {
     direction: rtl;
     text-align: right;
-    padding-inline-start: 34px;
+    padding-inline-end: 34px;
 }
 body.zenith-rtl .zenith-notify-modal-window .modal-close-button {
     left: var(--size-4-3, 12px);
