@@ -126,6 +126,15 @@ describe('pluralForm', () => {
         expect(pluralForm('ru', 100)).toBe('many');
     });
 
+    it('uses Arabic cardinal plural categories', () => {
+        expect(pluralForm('ar', 0)).toBe('zero');
+        expect(pluralForm('ar', 1)).toBe('one');
+        expect(pluralForm('ar', 2)).toBe('two');
+        expect(pluralForm('ar', 3)).toBe('few');
+        expect(pluralForm('ar', 11)).toBe('many');
+        expect(pluralForm('ar', 100)).toBe('other');
+    });
+
     it('has one form for Chinese', () => {
         expect(pluralForm('zh', 1)).toBe('other');
         expect(pluralForm('zh', 5)).toBe('other');
@@ -171,11 +180,13 @@ describe('resolveLocale', () => {
         expect(resolveLocale('ru')).toBe('ru');
         expect(resolveLocale('en')).toBe('en');
         expect(resolveLocale('zh')).toBe('zh');
+        expect(resolveLocale('ar')).toBe('ar');
     });
 
     it('names each locale for Intl', () => {
         expect(intlLocale('ru')).toBe('ru-RU');
         expect(intlLocale('zh')).toBe('zh-CN');
+        expect(intlLocale('ar')).toBe('ar');
         expect(intlLocale('en')).toBe('en-US');
         expect(intlLocale('en', 'en-GB')).toBe('en-GB');
     });
@@ -188,6 +199,8 @@ describe('resolveLocale', () => {
             expect(resolveLocale('auto')).toBe('zh');
             mockLanguage.value = 'zh-TW';
             expect(resolveLocale('auto')).toBe('zh');
+            mockLanguage.value = 'ar';
+            expect(resolveLocale('auto')).toBe('ar');
             mockLanguage.value = 'de';
             expect(resolveLocale('auto')).toBe('en');
         } finally {
