@@ -172,10 +172,10 @@ body.zenith-rtl .zenith-notify__missed {
 
 /* ── Arabic-specific refinements ──────────────────────────────────────────── */
 
-/* Keep the card's physical controls anchored to the right while the title
-   itself is read from the right. The header is a stable LTR layout rail. */
+/* Read card headers from right to left: icon and title sit on the right,
+   while the three-dot settings action stays at the physical left edge. */
 body.zenith-rtl .zenith-widget-card__header {
-    direction: ltr;
+    direction: rtl;
 }
 body.zenith-rtl .zenith-widget-card__title {
     direction: rtl;
@@ -184,7 +184,9 @@ body.zenith-rtl .zenith-widget-card__title {
 }
 body.zenith-rtl .zenith-widget-card__more {
     order: 0;
-    margin: 0 -6px 0 0;
+    margin: 0;
+    margin-inline-start: auto;
+    margin-inline-end: -6px;
 }
 
 /* Clock digits and each part of the time are isolated from Arabic bidi runs. */
@@ -328,6 +330,43 @@ body.zenith-rtl .zenith-settings__item-desc {
 
 /* Notification centre contents are hosted in an Obsidian modal; align each
    text block independently without changing the actions' click targets. */
+/* The notification modal's own chrome belongs to the RTL reading edge:
+   title on the right, native close control on the left. */
+body.zenith-rtl .zenith-notify-modal-window .modal-title {
+    direction: rtl;
+    text-align: right;
+    padding-inline-start: 34px;
+}
+body.zenith-rtl .zenith-notify-modal-window .modal-close-button {
+    left: var(--size-4-3, 12px);
+    right: auto;
+}
+
+/* The lead countdown reads as a right-aligned pair of number and event. */
+body.zenith-rtl .zenith-countdowns__lead,
+body.zenith-rtl .zenith-root button.zenith-countdowns__lead {
+    direction: rtl;
+    align-items: flex-start;
+    text-align: right;
+}
+body.zenith-rtl .zenith-countdowns__what {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 100%;
+    gap: 2px;
+    text-align: right;
+}
+body.zenith-rtl .zenith-countdowns__what > :first-child,
+body.zenith-rtl .zenith-countdowns__what > .zenith-wcap,
+body.zenith-rtl .zenith-countdowns__days,
+body.zenith-rtl .zenith-countdowns__more {
+    direction: rtl;
+    text-align: right;
+}
+
 body.zenith-rtl .zenith-notify-modal,
 body.zenith-rtl .zenith-notify__item,
 body.zenith-rtl .zenith-notify__text {
