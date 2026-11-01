@@ -1,21 +1,21 @@
 ---
-title: "Learn Arabic"
+title: "تعلم العربية"
 status: in-progress
 priority: low
 startDate: 2026-03-01
 targetDate: 2027-06-01
 tags: [arabic]
 taskTags: [arabic]
-description: "Reading the Quran without transliteration by next summer."
+description: "قراءة القرآن دون الاستعانة بالنقل الصوتي قبل الصيف القادم."
 color: "#10b981"
 icon: languages
 ---
 
-Reading the Quran without transliteration by next summer.
+قراءة القرآن دون الاستعانة بالنقل الصوتي قبل الصيف القادم.
 
-## Tasks
+## المهام
 
-- [x] Finish the alphabet ✅ 2026-04-10
-- [x] Learn the vowel marks ✅ 2026-06-02
-- [/] Madinah book, unit 3
-- [ ] Unit 4 🆔 unit4
+- [x] إكمال الحروف الأبجدية ✅ 2026-04-10
+- [x] تعلم الحركات ✅ 2026-06-02
+- [/] كتاب المدينة، الوحدة الثالثة
+- [ ] الوحدة الرابعة 🆔 unit4
