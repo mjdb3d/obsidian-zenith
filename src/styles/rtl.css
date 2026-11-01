@@ -168,3 +168,216 @@ body.zenith-rtl .zenith-notify__missed {
     margin-left: 0;
     margin-right: var(--zenith-space-sm);
 }
+
+
+/* ── Arabic-specific refinements ──────────────────────────────────────────── */
+
+/* Keep the card's physical controls anchored to the right while the title
+   itself is read from the right. The header is a stable LTR layout rail. */
+body.zenith-rtl .zenith-widget-card__header {
+    direction: ltr;
+}
+body.zenith-rtl .zenith-widget-card__title {
+    direction: rtl;
+    text-align: right;
+    flex: 1 1 auto;
+}
+body.zenith-rtl .zenith-widget-card__more {
+    order: 0;
+    margin: 0 -6px 0 0;
+}
+
+/* Clock digits and each part of the time are isolated from Arabic bidi runs. */
+body.zenith-rtl .zenith-clock__time {
+    direction: ltr;
+    flex-direction: row;
+    unicode-bidi: isolate;
+    text-align: left;
+}
+body.zenith-rtl .zenith-clock__time > span {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+body.zenith-rtl .zenith-clock__seconds {
+    order: 1;
+    direction: ltr;
+    unicode-bidi: isolate;
+    margin-left: 0.14em;
+    margin-right: 0;
+}
+
+/* A countdown's number and its Arabic unit need a visible separation. */
+body.zenith-rtl .zenith-countdowns .zenith-wfig {
+    direction: ltr;
+    unicode-bidi: isolate;
+    white-space: nowrap;
+}
+body.zenith-rtl .zenith-countdowns .zenith-wfig__unit {
+    display: inline-block;
+    direction: rtl;
+    unicode-bidi: isolate;
+    margin-left: 0.4em;
+    margin-right: 0;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+/* The arrange panel and its gallery are RTL menus, not LTR toolbars. */
+body.zenith-rtl .zenith-arrange,
+body.zenith-rtl .zenith-arrange__head,
+body.zenith-rtl .zenith-arrange__tabs,
+body.zenith-rtl .zenith-add-sheet,
+body.zenith-rtl .zenith-add-sheet__head {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-arrange__tabs {
+    justify-content: flex-start;
+}
+body.zenith-rtl .zenith-arrange__close {
+    flex: none;
+}
+body.zenith-rtl .zenith-add-sheet__item {
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    text-align: right;
+    justify-content: flex-start;
+}
+body.zenith-rtl .zenith-add-sheet__text,
+body.zenith-rtl .zenith-add-sheet__name,
+body.zenith-rtl .zenith-add-sheet__meta,
+body.zenith-rtl .zenith-add-sheet__group-label {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-add-sheet__text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+body.zenith-rtl .zenith-add-sheet__icon,
+body.zenith-rtl .zenith-add-sheet__action {
+    flex: none;
+}
+
+/* Root settings tiles: use gap rather than a physical margin, so the icon and
+   its Arabic label remain separated when the row direction changes. */
+body.zenith-rtl .zenith-settings__menu-item {
+    direction: rtl;
+    gap: 16px;
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__menu-icon {
+    flex: none;
+    margin: 0;
+}
+body.zenith-rtl .zenith-settings__menu-text {
+    min-width: 0;
+    text-align: right;
+    align-items: flex-start;
+}
+body.zenith-rtl .zenith-settings__menu-title,
+body.zenith-rtl .zenith-settings__menu-desc {
+    width: 100%;
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__menu-chevron {
+    flex: none;
+}
+
+/* Keep the back button at the right edge of settings subpages. The icon stays
+   in a small LTR run while the Arabic category name aligns to the right. */
+body.zenith-rtl .zenith-settings__header,
+body.zenith-rtl .zenith-settings__header--nested {
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__back-btn:not(#_) {
+    left: auto;
+    right: 0;
+    direction: ltr;
+    flex-direction: row;
+    text-align: right;
+    padding: 4px 0 4px 8px;
+}
+body.zenith-rtl .zenith-settings__back-text {
+    direction: rtl;
+    text-align: right;
+}
+
+/* In stacked settings rows (notably notification-source preferences), the
+   explanatory Arabic text must have the full row rather than a narrow column. */
+body.zenith-rtl .zenith-settings__item--stack > .zenith-settings__item-info {
+    width: 100%;
+    min-width: 0;
+    flex: 0 0 auto;
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__item--stack > .zenith-settings__item-control {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+}
+body.zenith-rtl .zenith-settings__item-desc {
+    direction: rtl;
+    text-align: right;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* Notification centre contents are hosted in an Obsidian modal; align each
+   text block independently without changing the actions' click targets. */
+body.zenith-rtl .zenith-notify-modal,
+body.zenith-rtl .zenith-notify__item,
+body.zenith-rtl .zenith-notify__text {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-notify__item {
+    flex-direction: row;
+}
+body.zenith-rtl .zenith-notify__actions {
+    direction: ltr;
+    flex: none;
+}
+body.zenith-rtl .zenith-notify__title,
+body.zenith-rtl .zenith-notify__body,
+body.zenith-rtl .zenith-notify__meta {
+    direction: rtl;
+    text-align: right;
+}
+
+/* The Journal's habit-month is a separate scrolling grid from .zenith-jcal.
+   Day one belongs at the right, with later dates progressing to the left. */
+body.zenith-rtl .zenith-hmon__scroll,
+body.zenith-rtl .zenith-hmon__grid,
+body.zenith-rtl .zenith-hmon__track {
+    direction: rtl;
+}
+body.zenith-rtl .zenith-hmon__label,
+body.zenith-rtl .zenith-hmon__corner {
+    left: auto;
+    right: 0;
+    border-right: 0;
+    border-left: 1px solid var(--zenith-border);
+}
+body.zenith-rtl .zenith-hmon__label {
+    flex-direction: row;
+    text-align: right;
+}
+body.zenith-rtl .zenith-hmon__label-rate {
+    direction: ltr;
+    unicode-bidi: isolate;
+    margin-left: 0;
+    margin-right: auto;
+}
+body.zenith-rtl .zenith-hmon__daynum,
+body.zenith-rtl .zenith-hmon__total {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+body.zenith-rtl .zenith-hmon__weekday {
+    direction: rtl;
+    text-align: center;
+}
