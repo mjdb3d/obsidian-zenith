@@ -523,18 +523,19 @@ body.zenith-rtl .zenith-prayer--widget .zenith-prayer__open {
 }
 
 
-/* Compact prayer summary: three explicit RTL columns keep the information on
-   the right, the completion count exactly in the middle, and expand on left. */
+/* The counter belongs in the free space BETWEEN the actual right-hand
+   summary and the left-hand expand control, not at the geometric centre of
+   the whole card. Flex gives the counter the remaining space and centres its
+   text inside that space, so the result follows either neighbour naturally. */
 body.zenith-rtl .zenith-prayer--stack .zenith-prayer__oneline {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    display: flex;
+    flex-direction: row;
     align-items: center;
     direction: rtl;
     gap: 8px;
 }
 body.zenith-rtl .zenith-prayer--stack .zenith-prayer__summary {
-    grid-column: 1;
-    justify-self: start;
+    flex: 0 1 auto;
     display: inline-flex;
     align-items: baseline;
     gap: 8px;
@@ -543,14 +544,13 @@ body.zenith-rtl .zenith-prayer--stack .zenith-prayer__summary {
     text-align: right;
 }
 body.zenith-rtl .zenith-prayer--stack .zenith-prayer__counter {
-    grid-column: 2;
-    justify-self: center;
+    flex: 1 1 auto;
+    min-width: 0;
     margin: 0;
     white-space: nowrap;
     text-align: center;
 }
 body.zenith-rtl .zenith-prayer--stack .zenith-prayer__open {
-    grid-column: 3;
-    justify-self: end;
+    flex: 0 0 auto;
     margin: 0;
 }
