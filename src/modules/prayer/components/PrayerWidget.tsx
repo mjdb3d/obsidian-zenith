@@ -178,10 +178,12 @@ export const PrayerWidget: FC<DashboardWidgetProps> = () => {
         return (
             <div className="zenith-prayer zenith-prayer--widget zenith-prayer--stack">
                 <div className="zenith-prayer__oneline">
-                    <b>
-                        {next ? `${t(`prayer.${next.id}`)} ${formatClock(next.at, t.locale)}` : '—'}
-                    </b>
-                    <span className="zenith-prayer__countdown">{countdown}</span>
+                    <span className="zenith-prayer__summary">
+                        <b>
+                            {next ? `${t(`prayer.${next.id}`)} ${formatClock(next.at, t.locale)}` : '—'}
+                        </b>
+                        <span className="zenith-prayer__countdown">{countdown}</span>
+                    </span>
                     <span className="zenith-prayer__counter">
                         {t('prayer.done', { done, total: PRAYERS.length })}
                     </span>
