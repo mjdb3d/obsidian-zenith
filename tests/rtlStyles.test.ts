@@ -5,11 +5,15 @@ import { describe, expect, it } from 'vitest';
 // Guards the direction-sensitive selectors used by the notification modal and prayer widget.
 describe('Arabic RTL layout', () => {
     const styles = readFileSync(join(__dirname, '../src/styles/rtl.css'), 'utf8');
+    const modal = readFileSync(join(__dirname, '../src/core/notifications/NotificationCenterModal.ts'), 'utf8');
 
     it('pins the notification close control to the physical left on either modal surface', () => {
         expect(styles).toContain('.modal-container.zenith-notify-modal-window .modal-close-button');
         expect(styles).toContain('.modal.zenith-notify-modal-window .modal-close-button');
-        expect(styles).toContain('inset-inline-end: auto');
+        expect(styles).toContain('.zenith-notify-modal__close');
+        expect(styles).toContain('inset-inline-end: var(--size-4-3, 12px)');
+        expect(modal).toContain("'.modal-close-button, .modal-header-button'");
+        expect(modal).toContain("addClass('zenith-notify-modal__close')");
     });
 
     it('anchors prayer labels to the right and isolates clock digits', () => {
