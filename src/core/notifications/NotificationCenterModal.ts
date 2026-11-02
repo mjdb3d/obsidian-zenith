@@ -29,11 +29,26 @@ export class NotificationCenterModal extends Modal {
     onOpen(): void {
         const { contentEl, titleEl } = this;
         titleEl.setText(translateNow('notify.title'));
-        // The native close control can be attached to the outer modal
-        // container, not the panel. Mark both and pin the control to the
-        // physical left so Obsidian's default right offset cannot win.
+        // Mark the actual modal and its outer container. Obsidian themes
+        // differ in the class used by the native header close control, so tag
+        // either supported native selector with our stable class.
         this.containerEl.addClass('zenith-notify-modal-window');
         this.modalEl.addClass('zenith-notify-modal-window');
+        const nativeClose = this.modalEl.querySelector<HTMLElement>(
+            '.modal-close-button, .modal-header-button'
+        );
+        if (nativeClose) {
+            nativeClose.addClass('zenith-notify-modal__close');
+        } else {
+            // Keep a usable close control even if a theme/API version changes
+            // the native selector. Escape continues to work as usual.
+            const close = this.modalEl.createEl('button', {
+                cls: 'modal-close-button zenith-notify-modal__close',
+                attr: { type: 'button', 'aria-label': translateNow('a11y.close') },
+            });
+            close.setText('×');
+            close.addEventListener('click', () => this.close());
+        }
         contentEl.addClass('zenith-root', 'zenith-notify-modal');
 
         this.root = createRoot(contentEl.createDiv());
