@@ -521,3 +521,36 @@ body.zenith-rtl .zenith-prayer--widget .zenith-prayer__open {
     margin-inline-start: auto;
     margin-inline-end: 0;
 }
+
+
+/* Compact prayer summary: three explicit RTL columns keep the information on
+   the right, the completion count exactly in the middle, and expand on left. */
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__oneline {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    direction: rtl;
+    column-gap: 8px;
+}
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__summary {
+    grid-column: 1;
+    justify-self: start;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__counter {
+    grid-column: 2;
+    justify-self: center;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+}
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__open {
+    grid-column: 3;
+    justify-self: end;
+    margin: 0;
+}
