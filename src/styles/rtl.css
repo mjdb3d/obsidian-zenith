@@ -554,3 +554,72 @@ body.zenith-rtl .zenith-prayer--stack .zenith-prayer__open {
     flex: 0 0 auto;
     margin: 0;
 }
+
+
+/* ── Today card and morning/evening ritual dialog ───────────────────────── */
+
+/* The Today card's first row is icon → label → chevron in the DOM. In RTL,
+   the icon belongs on the right and the forward affordance points left. */
+body.zenith-rtl .zenith-today__day {
+    direction: rtl;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: right;
+}
+body.zenith-rtl .zenith-today__day > .zenith-wcap,
+body.zenith-rtl .zenith-today__focus {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-today__go {
+    transform: scaleX(-1);
+}
+body.zenith-rtl .zenith-today__day:hover .zenith-today__go {
+    transform: translateX(-2px) scaleX(-1);
+}
+
+/* RitualModal's title and native close affordance are outside .zenith-root.
+   Mark and target the actual close button so it sits at the physical left. */
+body.zenith-rtl .modal.zenith-ritual-modal-window .modal-title {
+    direction: rtl;
+    text-align: right;
+    padding-left: 28px;
+    padding-right: 0;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual-modal__close,
+body.zenith-rtl .modal-container.zenith-ritual-modal-window .zenith-ritual-modal__close {
+    position: absolute;
+    top: var(--size-4-3, 12px);
+    left: var(--size-4-3, 12px);
+    right: auto;
+    inset-inline-start: var(--size-4-3, 12px);
+    inset-inline-end: auto;
+    z-index: 2;
+}
+
+/* All prose and task titles in the morning/evening page follow Arabic
+   reading order. The task status remains the rightmost leading control and
+   secondary actions naturally stay at the left end of each row. */
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__section,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__heading,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__empty,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__title,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__actions,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__tomorrow {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__task {
+    direction: rtl;
+    flex-direction: row;
+    text-align: right;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__title {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window input.zenith-ritual__line {
+    direction: rtl;
+    text-align: right;
+}
