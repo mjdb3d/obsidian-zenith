@@ -7,6 +7,8 @@ describe('Arabic RTL layout', () => {
     const styles = readFileSync(join(__dirname, '../src/styles/rtl.css'), 'utf8');
     const modal = readFileSync(join(__dirname, '../src/core/notifications/NotificationCenterModal.ts'), 'utf8');
     const prayerWidget = readFileSync(join(__dirname, '../src/modules/prayer/components/PrayerWidget.tsx'), 'utf8');
+    const todayWidget = readFileSync(join(__dirname, '../src/modules/journal/components/TodayWidget.tsx'), 'utf8');
+    const ritualModal = readFileSync(join(__dirname, '../src/modules/journal/RitualModal.ts'), 'utf8');
 
     it('pins the notification close control to the physical left on either modal surface', () => {
         expect(styles).toContain('.modal-container.zenith-notify-modal-window .modal-close-button');
@@ -28,5 +30,16 @@ describe('Arabic RTL layout', () => {
         expect(styles).toContain('text-align: center;');
         expect(prayerWidget).toContain('className="zenith-prayer__summary"');
         expect(styles).toContain('unicode-bidi: isolate');
+    });
+    it('aligns the Today ritual row and ritual dialog for Arabic', () => {
+        expect(styles).toContain('.zenith-today__day {');
+        expect(styles).toContain('transform: scaleX(-1);');
+        expect(styles).toContain('text-align: right;');
+        expect(todayWidget).toContain('<ChevronRight size={15} className="zenith-today__go"');
+        expect(ritualModal).toContain("this.containerEl.querySelector<HTMLElement>(");
+        expect(ritualModal).toContain("addClass('zenith-ritual-modal__close')");
+        expect(styles).toContain('.modal.zenith-ritual-modal-window .zenith-ritual-modal__close');
+        expect(styles).toContain('.zenith-ritual__task');
+        expect(styles).toContain('padding-left: 28px;');
     });
 });
