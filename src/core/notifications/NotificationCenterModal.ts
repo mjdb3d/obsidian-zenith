@@ -34,7 +34,7 @@ export class NotificationCenterModal extends Modal {
         // either supported native selector with our stable class.
         this.containerEl.addClass('zenith-notify-modal-window');
         this.modalEl.addClass('zenith-notify-modal-window');
-        const nativeClose = this.modalEl.querySelector<HTMLElement>(
+        const nativeClose = this.containerEl.querySelector<HTMLElement>(
             '.modal-close-button, .modal-header-button'
         );
         if (nativeClose) {
