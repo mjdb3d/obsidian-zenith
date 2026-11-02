@@ -530,7 +530,7 @@ body.zenith-rtl .zenith-prayer--stack .zenith-prayer__oneline {
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
     direction: rtl;
-    column-gap: 8px;
+    gap: 8px;
 }
 body.zenith-rtl .zenith-prayer--stack .zenith-prayer__summary {
     grid-column: 1;
