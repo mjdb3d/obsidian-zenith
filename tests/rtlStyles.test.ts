@@ -11,7 +11,7 @@ describe('Arabic RTL layout', () => {
         expect(styles).toContain('.modal-container.zenith-notify-modal-window .modal-close-button');
         expect(styles).toContain('.modal.zenith-notify-modal-window .modal-close-button');
         expect(styles).toContain('.zenith-notify-modal__close');
-        expect(styles).toContain('inset-inline-end: var(--size-4-3, 12px)');
+        expect(styles).toContain('inset-inline-end: auto');
         expect(modal).toContain("this.containerEl.querySelector<HTMLElement>(");
         expect(modal).toContain("'.modal-close-button, .modal-header-button'");
         expect(modal).toContain("addClass('zenith-notify-modal__close')");
