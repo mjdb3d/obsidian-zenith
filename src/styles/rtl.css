@@ -498,3 +498,26 @@ body.zenith-rtl .modal-container.zenith-notify-modal-window .zenith-notify-modal
     inset-inline-end: auto;
     z-index: 2;
 }
+
+
+/* Prayer widget RTL edge alignment.
+   The DOM order is name → time → status mark. The name stays at the right;
+   its inline-end auto margin sends the time/mark pair to the far left. */
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-name {
+    margin-inline-end: auto;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-time,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-mark {
+    flex: 0 0 auto;
+}
+
+/* Keep the completion count with the summary text and send the expand button
+   to the opposite edge of the card on both the compact and wide compositions. */
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__counter {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__open {
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+}
