@@ -483,3 +483,18 @@ body.zenith-rtl .zenith-prayer--widget .zenith-prayer__counter {
     margin-left: 0;
     margin-right: auto;
 }
+
+
+/* Pin the close control itself, not merely its containing modal. Obsidian
+   versions/themes use either modal-close-button or modal-header-button; the
+   class added by NotificationCenterModal gives both one stable target. */
+body.zenith-rtl .modal.zenith-notify-modal-window .zenith-notify-modal__close,
+body.zenith-rtl .modal-container.zenith-notify-modal-window .zenith-notify-modal__close {
+    position: absolute;
+    top: var(--size-4-3, 12px);
+    left: var(--size-4-3, 12px);
+    right: auto;
+    inset-inline-start: var(--size-4-3, 12px);
+    inset-inline-end: auto;
+    z-index: 2;
+}
