@@ -21,7 +21,21 @@ export class RitualModal extends Modal {
 
     onOpen(): void {
         this.titleEl.setText(translateNow(`ritual.${this.kind}.title`));
-        this.modalEl.addClass('zenith-ritual-modal');
+        this.containerEl.addClass('zenith-ritual-modal-window');
+        this.modalEl.addClass('zenith-ritual-modal', 'zenith-ritual-modal-window');
+        const nativeClose = this.containerEl.querySelector<HTMLElement>(
+            '.modal-close-button, .modal-header-button'
+        );
+        if (nativeClose) {
+            nativeClose.addClass('zenith-ritual-modal__close');
+        } else {
+            const close = this.modalEl.createEl('button', {
+                cls: 'modal-close-button zenith-ritual-modal__close',
+                attr: { type: 'button', 'aria-label': translateNow('a11y.close') },
+            });
+            close.setText('×');
+            close.addEventListener('click', () => this.close());
+        }
         const { contentEl } = this;
         contentEl.empty();
         contentEl.addClass('zenith-root');

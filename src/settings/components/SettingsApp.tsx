@@ -386,7 +386,7 @@ export const SettingsApp: React.FC = () => {
     };
 
     return (
-        <div className="zenith-settings">
+        <div className="zenith-settings" dir={t.locale === "ar" ? "rtl" : "ltr"}>
             {/* A drill-down's header IS the page title, and nothing under it
                 draws a line the way the root page's first group label does. */}
             <div

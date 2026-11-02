@@ -171,7 +171,7 @@ describe('the demo vault in the repository', () => {
 
     it('has its two start notes, each under its own name', () => {
         const top = readdirSync(VAULT);
-        expect(top).toContain('Start here.md');
+        expect(top).toContain('ابدأ هنا.md');
         expect(top).toContain('Начните здесь.md');
         // A name that came through a wrong code page is made of box-drawing characters.
         expect(files.map(rel).filter((f) => /[\u2500-\u257f]/.test(f))).toEqual([]);
@@ -183,9 +183,9 @@ describe('the demo vault in the repository', () => {
     });
 
     it('is written around the day the move starts from', () => {
-        expect(existsSync(join(VAULT, '15 Journal', 'Daily note', `${DEMO_TODAY}.md`))).toBe(true);
+        expect(existsSync(join(VAULT, '15 اليوميات', 'الملاحظات اليومية', `${DEMO_TODAY}.md`))).toBe(true);
         // Nothing in the journal is dated after it.
-        const days = readdirSync(join(VAULT, '15 Journal', 'Daily note')).map((n) => n.replace('.md', ''));
+        const days = readdirSync(join(VAULT, '15 اليوميات', 'الملاحظات اليومية')).map((n) => n.replace('.md', ''));
         expect(days.filter((d) => d > DEMO_TODAY)).toEqual([]);
     });
 
@@ -195,7 +195,7 @@ describe('the demo vault in the repository', () => {
         // day's note and a task are tied to a date; a review of a week is not.
         const WEEKDAY =
             /\b(mon|tues|wednes|thurs|fri|satur|sun)days?\b|понедельник|вторник|сред[аеуы]\b|четверг|пятниц|суббот|воскресень/i;
-        const dated = files.filter((f) => /Daily note\/|Tasks\//.test(rel(f)));
+        const dated = files.filter((f) => /الملاحظات اليومية\/|المهام\//.test(rel(f)));
         expect(dated.length).toBeGreaterThan(50);
         const named = dated.flatMap((f) =>
             readFileSync(f, 'utf8')
@@ -208,14 +208,14 @@ describe('the demo vault in the repository', () => {
 
     it('reads its tasks from the inbox it shows off', () => {
         // An empty tasks folder means "no folder", not "the whole vault".
-        expect(settings.tasksFolderPath).toBe('10 Inbox/Tasks');
-        expect(existsSync(join(VAULT, '10 Inbox', 'Tasks', 'Inbox.md'))).toBe(true);
+        expect(settings.tasksFolderPath).toBe('10 الوارد/المهام');
+        expect(existsSync(join(VAULT, '10 الوارد', 'المهام', 'Inbox.md'))).toBe(true);
     });
 
     it('points at pictures that are in it', () => {
         const wallpaper = settings.dashboardBgPath as string;
         expect(existsSync(join(VAULT, ...wallpaper.split('/')))).toBe(true);
-        for (const note of files.filter((f) => rel(f).startsWith('30 Content/') && f.endsWith('.md'))) {
+        for (const note of files.filter((f) => rel(f).startsWith('30 المحتوى/') && f.endsWith('.md'))) {
             const cover = /^cover:\s*"?([^"\n]+)"?\s*$/m.exec(readFileSync(note, 'utf8'))?.[1];
             if (cover) expect(existsSync(join(VAULT, ...cover.split('/'))), `${rel(note)} → ${cover}`).toBe(true);
         }

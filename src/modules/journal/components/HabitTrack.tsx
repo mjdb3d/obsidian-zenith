@@ -46,7 +46,10 @@ export function valueLabel(row: HabitRow, cell: HabitCell, t: Translator): strin
  */
 export const HabitTrack: FC<HabitTrackProps> = ({ row, index, t, pulse, onPick }) => {
     const step = 100 / row.cells.length;
+    const rtl = t.locale === 'ar';
     const centre = (day: number) => step * (day - 0.5);
+    const dayPosition = (day: number): Pick<CSSProperties, 'left' | 'right'> =>
+        rtl ? { right: `${centre(day)}%` } : { left: `${centre(day)}%` };
 
     /** The streak a day belongs to, if any. */
     const runOf = (column: number) =>
@@ -99,12 +102,12 @@ export const HabitTrack: FC<HabitTrackProps> = ({ row, index, t, pulse, onPick }
                             data-to={run.to}
                             data-row={index}
                             style={{
-                                left: `${centre(from)}%`,
+                                ...dayPosition(from),
                                 width: `${centre(to) - centre(from)}%`,
                                 // Its own slice of the row's gradient, so
                                 // the bar and the discs on it agree at
                                 // every column instead of stepping.
-                                background: `linear-gradient(90deg, ${shade(run.from)}, ${shade(
+                                background: `linear-gradient(${rtl ? '270deg' : '90deg'}, ${shade(run.from)}, ${shade(
                                     run.to
                                 )})`,
                             }}
@@ -122,7 +125,7 @@ export const HabitTrack: FC<HabitTrackProps> = ({ row, index, t, pulse, onPick }
                             data-row={index}
                             data-marked="1"
                             style={{
-                                left: `${centre(cell.day)}%`,
+                                ...dayPosition(cell.day),
                                 background: shade(cell.day - 1),
                             }}
                         />
@@ -143,7 +146,7 @@ export const HabitTrack: FC<HabitTrackProps> = ({ row, index, t, pulse, onPick }
                     'data-marked':
                         cell.state === 'done' || cell.state === 'partial' ? '1' : undefined,
                     style: {
-                        left: `${centre(cell.day)}%`,
+                        ...dayPosition(cell.day),
                         '--hmon-fill': cell.fill,
                         // The mark sits on top of the disc in the chain layer
                         // and has to be the same colour as it, or the crisp

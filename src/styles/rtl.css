@@ -1,0 +1,625 @@
+/* Right-to-left presentation for Arabic. Scoped to Zenith so Obsidian's
+   own chrome and other community plugins keep their chosen direction. */
+body.zenith-rtl .zenith-root,
+body.zenith-rtl .zenith-settings,
+body.zenith-rtl .zenith-pop,
+body.zenith-rtl .zenith-quick-add,
+body.zenith-rtl .zenith-notification-center,
+body.zenith-rtl .zenith-profile,
+body.zenith-rtl .zenith-modal,
+body.zenith-rtl .zenith-dialog {
+    direction: rtl;
+    text-align: start;
+}
+
+/* Settings and navigation affordances should point into the RTL reading flow. */
+body.zenith-rtl .zenith-settings__menu-chevron,
+body.zenith-rtl .zenith-settings__back-btn > svg {
+    transform: scaleX(-1);
+}
+
+/* Use logical spacing for the file-explorer decoration. */
+body.zenith-rtl .zenith-nav-icon {
+    margin-right: 0;
+    margin-left: 5px;
+    margin-inline-end: 5px;
+    margin-inline-start: 0;
+}
+
+/* Text inputs and editable fields should start on the right. Keep code,
+   URLs, paths, and explicitly LTR content in their natural direction. */
+body.zenith-rtl .zenith-root input:not([type="number"]):not([type="time"]),
+body.zenith-rtl .zenith-root textarea,
+body.zenith-rtl .zenith-settings input:not([type="number"]):not([type="time"]),
+body.zenith-rtl .zenith-settings textarea {
+    text-align: start;
+}
+
+body.zenith-rtl .zenith-root code,
+body.zenith-rtl .zenith-root pre,
+body.zenith-rtl .zenith-root kbd,
+body.zenith-rtl .zenith-root .is-ltr,
+body.zenith-rtl .zenith-settings .is-ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+}
+
+/* Numbers, times, and technical identifiers often mix with Arabic text. */
+body.zenith-rtl .zenith-root [dir="ltr"],
+body.zenith-rtl .zenith-settings [dir="ltr"] {
+    unicode-bidi: isolate;
+}
+
+
+/* ── Dashboard ────────────────────────────────────── */
+
+/* The card's ⋯ action is the first thing read in an RTL header, so keep it at
+   the physical right edge instead of leaving it after the title on the left. */
+body.zenith-rtl .zenith-widget-card__more {
+    order: -1;
+    margin-inline: -6px 0;
+}
+
+/* A clock is a numeric instrument, not Arabic prose. Keep its visual sequence
+   hour : minute : second even when the containing card reads RTL. */
+body.zenith-rtl .zenith-clock__time {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+}
+
+/* The hour strip is a 00:00 → 24:00 timeline, so its marks stay left-to-right
+   even though the rest of the card follows Arabic reading order. */
+body.zenith-rtl .zenith-clock__hours,
+body.zenith-rtl .zenith-clock__strip {
+    direction: ltr;
+}
+
+body.zenith-rtl .zenith-clock__seconds {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* Keep the count separate from its Arabic unit. The unit follows the number
+   in a small LTR-isolated run, avoiding bidi's tendency to pull it against it. */
+body.zenith-rtl .zenith-countdowns .zenith-wfig {
+    direction: ltr;
+    unicode-bidi: isolate;
+    white-space: nowrap;
+}
+
+body.zenith-rtl .zenith-countdowns .zenith-wfig__unit {
+    display: inline-block;
+    direction: rtl;
+    unicode-bidi: isolate;
+}
+
+/* The arranging gallery is a panel of Arabic labels, not a row of LTR controls. */
+body.zenith-rtl .zenith-arrange,
+body.zenith-rtl .zenith-add-sheet {
+    direction: rtl;
+    text-align: right;
+}
+
+body.zenith-rtl .zenith-add-sheet__item {
+    direction: rtl;
+    text-align: right;
+}
+
+body.zenith-rtl .zenith-add-sheet__text,
+body.zenith-rtl .zenith-add-sheet__name,
+body.zenith-rtl .zenith-add-sheet__meta {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ── Journal calendar ─────────────────────────────── */
+
+/* The first date in the JS array is the first day of the configured week.
+   In Arabic that first cell belongs on the right, followed by later dates
+   moving left, in both the weekday strip and the month grid. */
+body.zenith-rtl .zenith-jcal,
+body.zenith-rtl .zenith-jcal__weekdays,
+body.zenith-rtl .zenith-jcal__grid {
+    direction: rtl;
+}
+
+body.zenith-rtl .zenith-jcal__num,
+body.zenith-rtl .zenith-jcal__week {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* ── Settings ──────────────────────────────────────── */
+
+body.zenith-rtl .zenith-settings__back-btn {
+    left: auto;
+    right: 0;
+    text-align: right;
+    padding: 4px 0 4px 8px;
+}
+
+body.zenith-rtl .zenith-settings__menu-icon {
+    margin-right: 0;
+    margin-left: 16px;
+}
+
+/* ── Notification list ─────────────────────────────── */
+
+body.zenith-rtl .zenith-notify__item {
+    padding-left: 0;
+    padding-right: var(--zenith-space-md);
+}
+
+body.zenith-rtl .zenith-notify__item.is-unread::before {
+    left: auto;
+    right: 2px;
+}
+
+body.zenith-rtl .zenith-notify__text,
+body.zenith-rtl .zenith-notify__title,
+body.zenith-rtl .zenith-notify__body,
+body.zenith-rtl .zenith-notify__meta {
+    text-align: right;
+}
+
+body.zenith-rtl .zenith-notify__missed {
+    margin-left: 0;
+    margin-right: var(--zenith-space-sm);
+}
+
+
+/* ── Arabic-specific refinements ──────────────────────────────────────────── */
+
+/* Read card headers from right to left: icon and title sit on the right,
+   while the three-dot settings action stays at the physical left edge. */
+body.zenith-rtl .zenith-widget-card__header {
+    direction: rtl;
+}
+body.zenith-rtl .zenith-widget-card__title {
+    direction: rtl;
+    text-align: right;
+    flex: 1 1 auto;
+}
+body.zenith-rtl .zenith-widget-card__more {
+    order: 0;
+    margin: 0;
+    margin-inline-start: auto;
+    margin-inline-end: -6px;
+}
+
+/* Clock digits and each part of the time are isolated from Arabic bidi runs. */
+body.zenith-rtl .zenith-clock__time {
+    direction: ltr;
+    flex-direction: row;
+    unicode-bidi: isolate;
+    text-align: left;
+}
+body.zenith-rtl .zenith-clock__time > span {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+body.zenith-rtl .zenith-clock__seconds {
+    order: 1;
+    direction: ltr;
+    unicode-bidi: isolate;
+    margin-left: 0.14em;
+    margin-right: 0;
+}
+
+/* A countdown's number and its Arabic unit need a visible separation. */
+body.zenith-rtl .zenith-countdowns .zenith-wfig {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0.38em;
+    direction: rtl;
+    unicode-bidi: isolate;
+    white-space: nowrap;
+    text-align: right;
+}
+body.zenith-rtl .zenith-countdowns .zenith-wfig__number {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+body.zenith-rtl .zenith-countdowns .zenith-wfig__unit {
+    display: inline-block;
+    direction: rtl;
+    unicode-bidi: isolate;
+    margin: 0;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+/* The arrange panel and its gallery are RTL menus, not LTR toolbars. */
+body.zenith-rtl .zenith-arrange,
+body.zenith-rtl .zenith-arrange__head,
+body.zenith-rtl .zenith-arrange__tabs,
+body.zenith-rtl .zenith-add-sheet,
+body.zenith-rtl .zenith-add-sheet__head {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-arrange__tabs {
+    justify-content: flex-start;
+}
+body.zenith-rtl .zenith-arrange__close {
+    flex: none;
+}
+body.zenith-rtl .zenith-add-sheet__item {
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    text-align: right;
+    justify-content: flex-start;
+}
+body.zenith-rtl .zenith-add-sheet__text,
+body.zenith-rtl .zenith-add-sheet__name,
+body.zenith-rtl .zenith-add-sheet__meta,
+body.zenith-rtl .zenith-add-sheet__group-label {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-add-sheet__text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+body.zenith-rtl .zenith-add-sheet__icon,
+body.zenith-rtl .zenith-add-sheet__action {
+    flex: none;
+}
+
+/* Root settings tiles: use gap rather than a physical margin, so the icon and
+   its Arabic label remain separated when the row direction changes. */
+body.zenith-rtl .zenith-settings__menu-item {
+    direction: rtl;
+    gap: 16px;
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__menu-icon {
+    flex: none;
+    margin: 0;
+}
+body.zenith-rtl .zenith-settings__menu-text {
+    min-width: 0;
+    text-align: right;
+    align-items: flex-start;
+}
+body.zenith-rtl .zenith-settings__menu-title,
+body.zenith-rtl .zenith-settings__menu-desc {
+    width: 100%;
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__menu-chevron {
+    flex: none;
+}
+
+/* Keep the back button at the right edge of settings subpages. The icon stays
+   in a small LTR run while the Arabic category name aligns to the right. */
+body.zenith-rtl .zenith-settings__header,
+body.zenith-rtl .zenith-settings__header--nested {
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__back-btn:not(#_) {
+    left: auto;
+    right: 0;
+    direction: ltr;
+    flex-direction: row;
+    text-align: right;
+    padding: 4px 0 4px 8px;
+}
+body.zenith-rtl .zenith-settings__back-text {
+    direction: rtl;
+    text-align: right;
+}
+
+/* In stacked settings rows (notably notification-source preferences), the
+   explanatory Arabic text must have the full row rather than a narrow column. */
+body.zenith-rtl .zenith-settings__item--stack > .zenith-settings__item-info {
+    width: 100%;
+    min-width: 0;
+    flex: 0 0 auto;
+    text-align: right;
+}
+body.zenith-rtl .zenith-settings__item--stack > .zenith-settings__item-control {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+}
+body.zenith-rtl .zenith-settings__item-desc {
+    direction: rtl;
+    text-align: right;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* Notification centre contents are hosted in an Obsidian modal; align each
+   text block independently without changing the actions' click targets. */
+/* The notification modal's own chrome belongs to the RTL reading edge:
+   title on the right, native close control on the left. */
+body.zenith-rtl .zenith-notify-modal-window .modal-title {
+    direction: rtl;
+    text-align: right;
+    padding-inline-end: 34px;
+}
+body.zenith-rtl .zenith-notify-modal-window .modal-close-button {
+    left: var(--size-4-3, 12px);
+    right: auto;
+}
+
+/* The lead countdown reads as a right-aligned pair of number and event. */
+body.zenith-rtl .zenith-countdowns__lead,
+body.zenith-rtl .zenith-root button.zenith-countdowns__lead {
+    direction: rtl;
+    align-items: flex-start;
+    text-align: right;
+}
+body.zenith-rtl .zenith-countdowns__what {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 100%;
+    gap: 2px;
+    text-align: right;
+}
+body.zenith-rtl .zenith-countdowns__what > :first-child,
+body.zenith-rtl .zenith-countdowns__what > .zenith-wcap,
+body.zenith-rtl .zenith-countdowns__days,
+body.zenith-rtl .zenith-countdowns__more {
+    direction: rtl;
+    text-align: right;
+}
+
+body.zenith-rtl .zenith-notify-modal,
+body.zenith-rtl .zenith-notify__item,
+body.zenith-rtl .zenith-notify__text {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-notify__item {
+    flex-direction: row;
+}
+body.zenith-rtl .zenith-notify__actions {
+    direction: ltr;
+    flex: none;
+}
+body.zenith-rtl .zenith-notify__title,
+body.zenith-rtl .zenith-notify__body,
+body.zenith-rtl .zenith-notify__meta {
+    direction: rtl;
+    text-align: right;
+}
+
+/* The Journal's habit-month is a separate scrolling grid from .zenith-jcal.
+   Day one belongs at the right, with later dates progressing to the left. */
+body.zenith-rtl .zenith-hmon__scroll,
+body.zenith-rtl .zenith-hmon__grid,
+body.zenith-rtl .zenith-hmon__track {
+    direction: rtl;
+}
+body.zenith-rtl .zenith-hmon__label,
+body.zenith-rtl .zenith-hmon__corner {
+    left: auto;
+    right: 0;
+    border-right: 0;
+    border-left: 1px solid var(--zenith-border);
+}
+body.zenith-rtl .zenith-hmon__label {
+    flex-direction: row;
+    text-align: right;
+}
+body.zenith-rtl .zenith-hmon__label-rate {
+    direction: ltr;
+    unicode-bidi: isolate;
+    margin-left: 0;
+    margin-right: auto;
+}
+body.zenith-rtl .zenith-hmon__daynum,
+body.zenith-rtl .zenith-hmon__total {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+body.zenith-rtl .zenith-hmon__weekday {
+    direction: rtl;
+    text-align: center;
+}
+
+
+/* ── Final RTL corrections: notification chrome and prayer widget ─────── */
+
+/* The close control is sometimes a direct child of .modal-container in
+   Obsidian. Cover both modal surfaces; inline positioning in the modal class
+   is a second line of defence against theme rules. */
+body.zenith-rtl .modal-container.zenith-notify-modal-window .modal-close-button,
+body.zenith-rtl .modal.zenith-notify-modal-window .modal-close-button {
+    left: 12px;
+    right: auto;
+    inset-inline-start: 12px;
+    inset-inline-end: auto;
+}
+
+/* Prayer rows: the DOM order is name, time, status mark. With an RTL flex
+   direction they should read from the right edge toward the left. Remove the
+   original LTR auto-margin that was pushing the name away from the right. */
+body.zenith-rtl .zenith-prayer--widget button.zenith-prayer__tile--row {
+    direction: rtl;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: right;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-name {
+    direction: rtl;
+    text-align: right;
+    margin-right: 0;
+    margin-left: 0;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-time {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: right;
+    margin: 0;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-mark {
+    flex: 0 0 18px;
+    margin: 0;
+}
+
+/* The summary/next-prayer line and the hero area are prose too. Keep labels
+   and progress copy at the right while isolated clock values stay LTR. */
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__oneline,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__hero,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__hero-text,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__marked {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__counter {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+/* Pin the close control itself, not merely its containing modal. Obsidian
+   versions/themes use either modal-close-button or modal-header-button; the
+   class added by NotificationCenterModal gives both one stable target. */
+body.zenith-rtl .modal.zenith-notify-modal-window .zenith-notify-modal__close,
+body.zenith-rtl .modal-container.zenith-notify-modal-window .zenith-notify-modal__close {
+    position: absolute;
+    top: var(--size-4-3, 12px);
+    left: var(--size-4-3, 12px);
+    right: auto;
+    inset-inline-start: var(--size-4-3, 12px);
+    inset-inline-end: auto;
+    z-index: 2;
+}
+
+
+/* Prayer widget RTL edge alignment.
+   The DOM order is name → time → status mark. The name stays at the right;
+   its inline-end auto margin sends the time/mark pair to the far left. */
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-name {
+    margin-inline-end: auto;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-time,
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__tile--row .zenith-prayer__tile-mark {
+    flex: 0 0 auto;
+}
+
+/* Keep the completion count with the summary text and send the expand button
+   to the opposite edge of the card on both the compact and wide compositions. */
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__counter {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+body.zenith-rtl .zenith-prayer--widget .zenith-prayer__open {
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+}
+
+
+/* The counter belongs in the free space BETWEEN the actual right-hand
+   summary and the left-hand expand control, not at the geometric centre of
+   the whole card. Flex gives the counter the remaining space and centres its
+   text inside that space, so the result follows either neighbour naturally. */
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__oneline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    direction: rtl;
+    gap: 8px;
+}
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__summary {
+    flex: 0 1 auto;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__counter {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+}
+body.zenith-rtl .zenith-prayer--stack .zenith-prayer__open {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+
+/* ── Today card and morning/evening ritual dialog ───────────────────────── */
+
+/* The Today card's first row is icon → label → chevron in the DOM. In RTL,
+   the icon belongs on the right and the forward affordance points left. */
+body.zenith-rtl .zenith-today__day {
+    direction: rtl;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: right;
+}
+body.zenith-rtl .zenith-today__day > .zenith-wcap,
+body.zenith-rtl .zenith-today__focus {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .zenith-today__go {
+    transform: scaleX(-1);
+}
+body.zenith-rtl .zenith-today__day:hover .zenith-today__go {
+    transform: translateX(-2px) scaleX(-1);
+}
+
+/* RitualModal's title and native close affordance are outside .zenith-root.
+   Mark and target the actual close button so it sits at the physical left. */
+body.zenith-rtl .modal.zenith-ritual-modal-window .modal-title {
+    direction: rtl;
+    text-align: right;
+    padding-left: 28px;
+    padding-right: 0;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual-modal__close,
+body.zenith-rtl .modal-container.zenith-ritual-modal-window .zenith-ritual-modal__close {
+    position: absolute;
+    top: var(--size-4-3, 12px);
+    left: var(--size-4-3, 12px);
+    right: auto;
+    inset-inline-start: var(--size-4-3, 12px);
+    inset-inline-end: auto;
+    z-index: 2;
+}
+
+/* All prose and task titles in the morning/evening page follow Arabic
+   reading order. The task status remains the rightmost leading control and
+   secondary actions naturally stay at the left end of each row. */
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__section,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__heading,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__empty,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__title,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__actions,
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__tomorrow {
+    direction: rtl;
+    text-align: right;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__task {
+    direction: rtl;
+    flex-direction: row;
+    text-align: right;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window .zenith-ritual__title {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+body.zenith-rtl .modal.zenith-ritual-modal-window input.zenith-ritual__line {
+    direction: rtl;
+    text-align: right;
+}

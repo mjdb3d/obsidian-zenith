@@ -2,7 +2,7 @@
   "settings": {
     "settingsVersion": 12,
     "profilesOnboarded": true,
-    "tasksFolderPath": "10 Inbox/Tasks",
+    "tasksFolderPath": "10 الوارد/المهام",
     "location": {
       "lat": 55.7963,
       "lon": 49.1088,
@@ -17,21 +17,21 @@
     "journalTrackers": [
       {
         "id": "mood",
-        "label": "Mood",
+        "label": "المزاج",
         "icon": "smile",
         "color": "#eab308",
         "kind": "scale"
       },
       {
         "id": "energy",
-        "label": "Energy",
+        "label": "الطاقة",
         "icon": "zap",
         "color": "#84cc16",
         "kind": "scale"
       },
       {
         "id": "sport",
-        "label": "Exercise",
+        "label": "الرياضة",
         "icon": "dumbbell",
         "color": "#ef4444",
         "kind": "check",
@@ -40,35 +40,35 @@
       },
       {
         "id": "reading",
-        "label": "Reading",
+        "label": "القراءة",
         "icon": "book-open",
         "color": "#8b5cf6",
         "kind": "check"
       },
       {
         "id": "water",
-        "label": "Water",
+        "label": "الماء",
         "icon": "droplet",
         "color": "#3b82f6",
         "kind": "number",
-        "unit": "glasses",
+        "unit": "أكواب",
         "step": 1,
         "max": 8
       },
       {
         "id": "coffee",
-        "label": "Coffee",
+        "label": "القهوة",
         "icon": "coffee",
         "color": "#a16207",
         "kind": "number",
-        "unit": "cups",
+        "unit": "فناجين",
         "step": 1,
         "max": 2,
         "goalDirection": "atMost"
       },
       {
         "id": "sugar",
-        "label": "Sweets",
+        "label": "الحلويات",
         "icon": "candy",
         "color": "#f472b6",
         "kind": "check",
@@ -76,7 +76,7 @@
       },
       {
         "id": "meditation",
-        "label": "Meditation",
+        "label": "التأمل",
         "icon": "flower-2",
         "color": "#f59e0b",
         "kind": "check"
@@ -84,22 +84,22 @@
     ],
     "journalReviewNotes": {
       "week": {
-        "folder": "15 Journal/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "GGGG-[W]WW",
         "template": ""
       },
       "month": {
-        "folder": "15 Journal/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "YYYY-MM",
         "template": ""
       },
       "quarter": {
-        "folder": "15 Journal/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "YYYY-[Q]Q",
         "template": ""
       },
       "year": {
-        "folder": "15 Journal/Reviews",
+        "folder": "15 اليوميات/المراجعات",
         "format": "YYYY",
         "template": ""
       }
@@ -113,7 +113,7 @@
     "dashboardHeading": "greeting",
     "dashboardShowDate": true,
     "dashboardBgSource": "vault",
-    "dashboardBgPath": "00 Files/Images/Wallpaper zenith.webp",
+    "dashboardBgPath": "00 الملفات/الصور/Wallpaper zenith.webp",
     "dashboardBirthDate": "1994-03-15",
     "dashboardLifeYears": 80,
     "features": {
@@ -123,7 +123,7 @@
     "widgetConfig": {
       "picture.frame": {
         "pictureSource": "vault",
-        "picturePath": "00 Files/Images/Picture frame 1.png",
+        "picturePath": "00 الملفات/الصور/Picture frame 1.png",
         "pictureFit": "cover"
       },
       "dashboard.progress": {
@@ -133,13 +133,13 @@
         "hijri": true,
         "events": [
           {
-            "title": "Mum’s birthday",
+            "title": "عيد ميلاد أمي",
             "date": "1962-10-19",
             "yearly": true
           },
           {
-            "title": "Trip to Istanbul",
-            "date": "2026-11-12",
+            "title": "الرحلة إلى إسطنبول",
+            "date": "2026-12-10",
             "yearly": false
           }
         ]
@@ -422,6 +422,9 @@
       "picture.timer"
     ],
     "dashboardBgDim": 30,
-    "dashboardCardOpacity": 72
+    "dashboardCardOpacity": 72,
+    "journalFolderPath": "15 اليوميات/الملاحظات اليومية",
+    "contentFolderPath": "30 المحتوى",
+    "projectsFolderPath": "20 المشاريع"
   }
 }

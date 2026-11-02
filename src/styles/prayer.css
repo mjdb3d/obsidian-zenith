@@ -582,6 +582,14 @@
     color: var(--zenith-text-normal);
 }
 
+.zenith-prayer__summary {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+}
+
+
 .zenith-prayer--stack .zenith-prayer__countdown {
     font-size: 12px;
     margin-top: 0;
