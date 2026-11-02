@@ -23,8 +23,9 @@ describe('Arabic RTL layout', () => {
         expect(styles).toContain('margin-inline-end: auto;');
         expect(styles).toContain('margin-inline-start: auto;');
         expect(styles).toContain('.zenith-prayer__counter');
-        expect(styles).toContain('grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr)');
-        expect(styles).toContain('justify-self: center');
+        expect(styles).toContain('display: flex;');
+        expect(styles).toContain('flex: 1 1 auto;');
+        expect(styles).toContain('text-align: center;');
         expect(prayerWidget).toContain('className="zenith-prayer__summary"');
         expect(styles).toContain('unicode-bidi: isolate');
     });
