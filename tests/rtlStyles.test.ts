@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 describe('Arabic RTL layout', () => {
     const styles = readFileSync(join(__dirname, '../src/styles/rtl.css'), 'utf8');
     const modal = readFileSync(join(__dirname, '../src/core/notifications/NotificationCenterModal.ts'), 'utf8');
+    const prayerWidget = readFileSync(join(__dirname, '../src/modules/prayer/components/PrayerWidget.tsx'), 'utf8');
 
     it('pins the notification close control to the physical left on either modal surface', () => {
         expect(styles).toContain('.modal-container.zenith-notify-modal-window .modal-close-button');
@@ -22,6 +23,9 @@ describe('Arabic RTL layout', () => {
         expect(styles).toContain('margin-inline-end: auto;');
         expect(styles).toContain('margin-inline-start: auto;');
         expect(styles).toContain('.zenith-prayer__counter');
+        expect(styles).toContain('grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr)');
+        expect(styles).toContain('justify-self: center');
+        expect(prayerWidget).toContain('className="zenith-prayer__summary"');
         expect(styles).toContain('unicode-bidi: isolate');
     });
 });
